@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hexovate - Sign Up</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body class="bg-[#F5F8F1]">
+    <!-- MAIN CONTAINER -->
+    <div class="min-h-screen flex">
+
+
+        <!-- LEFT SIDE - SIGN UP FORM -->
+        <div class="w-full md:w-1/2 flex items-center justify-center px-6 py-10 sm:px-10">
+
+            <div class="w-full max-w-sm animate-fade-up">
+
+
+                <!-- LOGO -->
+                <a href="home.html"
+                   class="flex items-center gap-2 mb-8">
+
+                    <div class="w-7 h-7 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+
+                    <span class="font-semibold text-[15px] text-[#26352D]">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <!-- HEADING -->
+                <h2 class="text-2xl font-semibold text-[#26352D] mb-1">
+
+                    Create your account
+
+                </h2>
+
+                <p class="text-sm text-[#5C6B58] mb-7">
+
+                    Start managing your social posts with AI. Free for 14 days.
+
+                </p>
+
+
+                <!-- SOCIAL SIGNUP BUTTONS -->
+                <div class="flex gap-3 mb-5">
+
+
+                    <!-- GOOGLE -->
+                    <button
+                        class="flex-1 flex items-center justify-center gap-2 border border-[#DDE8D5] bg-white text-[#26352D] py-2.5 rounded-lg text-sm transition duration-200 hover:bg-[#F5F8F1] hover:-translate-y-0.5">
+
+                        <i class="fa-brands fa-google text-sm"></i>
+
+                        Google
+
+                    </button>
+
+
+                    <!-- APPLE -->
+                    <button
+                        class="flex-1 flex items-center justify-center gap-2 border border-[#DDE8D5] bg-white text-[#26352D] py-2.5 rounded-lg text-sm transition duration-200 hover:bg-[#F5F8F1] hover:-translate-y-0.5">
+
+                        <i class="fa-brands fa-apple text-sm"></i>
+
+                        Apple
+
+                    </button>
+
+                </div>
+
+
+                <!-- DIVIDER -->
+                <div class="flex items-center gap-3 mb-5">
+
+                    <div class="flex-1 h-px bg-[#DDE8D5]"></div>
+
+                    <span class="text-[11px] text-[#8B978A]">
+                        or sign up with email
+                    </span>
+
+                    <div class="flex-1 h-px bg-[#DDE8D5]"></div>
+
+                </div>
+
+
+                <!-- FULL NAME -->
+                <div class="mb-4">
+
+                    <label class="block text-xs text-[#26352D] mb-1.5">
+
+                        Full name
+
+                    </label>
+
+
+                    <div class="relative">
+
+                        <i class="fa-regular fa-user absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-sm"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Your name"
+                            class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg py-2.5 pl-9 pr-3 text-sm outline-none transition duration-200 focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450]">
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="mb-4">
+
+                    <label class="block text-xs text-[#26352D] mb-1.5">
+
+                        Email
+
+                    </label>
+
+
+                    <div class="relative">
+
+                        <i class="fa-regular fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-sm"></i>
+
+                        <input
+                            type="email"
+                            id="useremail"
+                            placeholder="name@company.com"
+                            class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg py-2.5 pl-9 pr-3 text-sm outline-none transition duration-200 focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450]">
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="mb-2">
+
+                    <label class="block text-xs text-[#26352D] mb-1.5">
+
+                        Password
+
+                    </label>
+
+
+                    <div class="relative">
+
+                        <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-sm"></i>
+
+                        <input
+                            type="password"
+                            id="userpassword"
+                            placeholder="Create a password"
+                            class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg py-2.5 pl-9 pr-10 text-sm outline-none transition duration-200 focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450]">
+
+
+                        <!-- EYE ICON -->
+                        <button
+                            type="button"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-[#8B978A] hover:text-[#2F5D50]">
+
+                            <i class="fa-regular fa-eye text-sm"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD INFO -->
+                <p class="text-[11px] text-[#8B978A] mb-5">
+
+                    At least 8 characters, with a number.
+
+                </p>
+
+
+                <!-- CREATE ACCOUNT BUTTON -->
+                <button id="usersignupbtn"
+                    class=" btn-sheen w-full bg-[#2F5D50] text-white py-3 rounded-lg text-sm font-semibold hover:bg-[#24493E] mb-4">
+
+                    Create account
+
+                </button>
+
+
+                <!-- TERMS -->
+                <p class="text-center text-xs text-[#8B978A] leading-6 mb-4">
+
+                    By continuing you agree to Hexovate's
+
+                    <a href="#" class="text-[#2F5D50]">
+                        Terms
+                    </a>
+
+                    and
+
+                    <a href="#" class="text-[#2F5D50]">
+                        Privacy Policy
+                    </a>.
+
+                </p>
+
+
+                <!-- LOGIN -->
+                <p class="text-center text-sm text-[#5C6B58]">
+
+                    Already have an account?
+
+                    <a href="login.html"
+                       class="text-[#2F5D50] font-semibold hover:underline">
+
+                        Log in
+
+                    </a>
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="hidden md:flex w-1/2 bg-[#2F5D50] items-center justify-center px-10 lg:px-16 relative overflow-hidden">
+
+
+            <!-- BACKGROUND CIRCLES -->
+            <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/5"></div>
+
+            <div class="absolute -bottom-20 -left-10 w-64 h-64 rounded-full bg-white/5"></div>
+
+
+            <!-- RIGHT CONTENT -->
+            <div class="relative w-full max-w-md animate-fade-up delay-200">
+
+
+                <!-- BADGE -->
+                <div class="inline-flex items-center gap-2 bg-white/10 text-[#DDE8D5] text-xs px-3 py-1.5 rounded-full mb-5">
+
+                    <i class="fa-solid fa-bolt text-xs"></i>
+
+                    Trusted by 2,400+ small teams
+
+                </div>
+
+
+                <!-- HEADING -->
+                <h2 class="text-2xl lg:text-3xl font-semibold text-white leading-snug mb-4">
+
+                  Let AI handle the busy work.
+
+                </h2>
+
+
+                <!-- PARAGRAPH -->
+                <p class="text-sm text-[#C9D6C2] leading-7 mb-8">Create better content, schedule your posts, and track what's working—all in one place.</p>
+
+
+                <!-- TESTIMONIAL CARD -->
+                <div class="bg-white/10 border border-white/15 rounded-xl p-4 animate-scale-in delay-300">
+
+
+                    <!-- QUOTE ICON -->
+                    <div class="mb-3">
+
+                        <i class="fa-solid fa-quote-left text-[#DDE8D5]"></i>
+
+                    </div>
+
+
+                    <!-- QUOTE -->
+                    <p class="text-sm text-[#EAF0E4] leading-6 mb-4">
+
+                        "We went from posting twice a week to every day, without hiring anyone. Hexovate writes the first draft and I just tweak it."
+
+                    </p>
+
+
+                    <!-- USER -->
+                    <div class="flex items-center gap-3">
+
+                        <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center">
+
+                            <i class="fa-solid fa-user text-white text-xs"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="text-xs text-white font-semibold">
+
+                                Amara Chen
+
+                            </p>
+
+                            <p class="text-[11px] text-[#B9C7AE]">
+
+                                Owner, The Fig Tree Bakery
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

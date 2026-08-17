@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hexovate - Overview</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body class="bg-[#F5F8F1] text-[#26352D]">
+
+
+    <!-- MAIN CONTAINER -->
+    <div class="min-h-screen flex">
+
+
+        <!-- SIDEBAR -->
+        <aside class="hidden md:flex w-[210px] bg-[#2F5D50] min-h-screen flex-col justify-between p-4 sticky top-0 animate-fade-down">
+
+
+            <!-- TOP SIDEBAR -->
+            <div>
+
+                <!-- LOGO -->
+                <a href="overview.html"
+                    class="flex items-center gap-2 px-2 mb-7">
+
+                    <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+                    <span class="text-white font-semibold text-base">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <!-- NAVIGATION -->
+                <div class="flex flex-col gap-1">
+
+
+                    <!-- OVERVIEW -->
+                    <a href="overview.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-white/15 text-white text-sm">
+
+                        <i class="fa-solid fa-chart-pie w-4"></i>
+
+                        Overview
+
+                    </a>
+
+
+                    <!-- CREATE POST -->
+                    <a href="createpost.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-sm hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-pen-to-square w-4"></i>
+
+                        Create post
+
+                    </a>
+
+
+                    <!-- CONTENT CALENDAR -->
+                    <a href="contentcalender.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-sm hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-calendar-days w-4"></i>
+
+                        Content calendar
+
+                    </a>
+
+
+                    <!-- SCHEDULED POSTS -->
+                    <a href="schedulepost.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-sm hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-regular fa-clock w-4"></i>
+
+                        Scheduled posts
+
+                    </a>
+
+
+                    <!-- CONTENT HISTORY -->
+                    <a href="contenthistory.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-sm hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-clock-rotate-left w-4"></i>
+
+                        Content history
+
+                    </a>
+
+
+                    <!-- ANALYTICS -->
+                    <a href="analytic.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-sm hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-chart-column w-4"></i>
+
+                        Analytics
+
+                    </a>
+
+
+                    <!-- SETTINGS -->
+                    <a href="settings.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-sm hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-gear w-4"></i>
+
+                        Settings
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- USER -->
+            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-2">
+
+
+                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-xs font-semibold flex-shrink-0">
+
+                    YK
+
+                </div>
+
+
+                <div class="min-w-0">
+
+                    <p class="text-xs text-white font-semibold truncate">
+                        Yesra
+                    </p>
+
+                    <p class="text-[11px] text-[#B9C7AE] truncate">
+                        yesra@hexovate.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 px-5 py-6 sm:px-7 lg:px-9">
+
+
+            <!-- MOBILE HEADER -->
+            <div class="md:hidden flex items-center justify-between mb-6">
+
+                <a href="overview.html"
+                    class="flex items-center gap-2">
+
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+                    <span class="font-semibold">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <button class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- TOP HEADER -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-7 animate-fade-up delay-100">
+
+
+                <!-- WELCOME -->
+                <div>
+
+                    <h2 class="text-lg font-semibold mb-1">
+                        Welcome back, Yesra
+                    </h2>
+
+                    <p class="text-sm text-[#5C6B58]">
+                        Here's what's happening with your posts.
+                    </p>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+                <div class="flex items-center gap-4">
+
+
+                    <!-- NOTIFICATION -->
+                    <button class="relative text-[#5C6B58]">
+
+                        <i class="fa-regular fa-bell text-lg"></i>
+
+                        <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#C9694F] border border-[#F5F8F1]">
+                        </span>
+
+                    </button>
+
+
+                    <!-- CREATE POST -->
+                    <a href="createpost.html"
+                        class="bg-[#2F5D50] text-white px-4 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 hover:bg-[#24493E]">
+
+                        <i class="fa-solid fa-plus text-xs"></i>
+
+                        Create post
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATS CARDS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-7">
+
+
+                <!-- TOTAL POSTS -->
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-5 animate-fade-up delay-100">
+
+                    <div class="flex items-start justify-between">
+
+                        <p class="text-xs text-[#8B978A] mb-1">
+                            Total posts
+                        </p>
+
+                        <i class="fa-regular fa-note-sticky text-[#B9C7AE]"></i>
+
+                    </div>
+
+
+                    <p class="text-2xl font-semibold">
+                        42
+                    </p>
+
+
+                    <p class="text-[11px] text-[#7A8450] mt-1.5">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+
+                        12% vs last month
+
+                    </p>
+
+                </div>
+
+
+                <!-- SCHEDULED -->
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-5 animate-fade-up delay-200">
+
+                    <div class="flex items-start justify-between">
+
+                        <p class="text-xs text-[#8B978A] mb-1">
+                            Scheduled
+                        </p>
+
+                        <i class="fa-regular fa-clock text-[#B9C7AE]"></i>
+
+                    </div>
+
+
+                    <p class="text-2xl font-semibold text-[#7A8450]">
+                        8
+                    </p>
+
+
+                    <p class="text-[11px] text-[#8B978A] mt-1.5">
+                        Next: today, 7:00 PM
+                    </p>
+
+                </div>
+
+
+                <!-- PUBLISHED -->
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-5 animate-fade-up delay-300">
+
+                    <div class="flex items-start justify-between">
+
+                        <p class="text-xs text-[#8B978A] mb-1">
+                            Published
+                        </p>
+
+                        <i class="fa-regular fa-circle-check text-[#B9C7AE]"></i>
+
+                    </div>
+
+
+                    <p class="text-2xl font-semibold text-[#2F5D50]">
+                        34
+                    </p>
+
+
+                    <p class="text-[11px] text-[#7A8450] mt-1.5">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+
+                        6.2% engagement
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOWER SECTION -->
+            <div class="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-5">
+
+
+                <!-- RECENT POSTS -->
+                <div>
+
+
+                    <!-- HEADING -->
+                    <div class="flex items-center justify-between mb-3 animate-fade-up delay-200">
+
+                        <p class="text-sm font-semibold">
+                            Recent posts
+                        </p>
+
+                        <a href="content_history.html"
+                            class="text-xs text-[#2F5D50] font-semibold">
+
+                            View all
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- POSTS -->
+                    <div class="flex flex-col gap-2">
+
+
+                        <!-- INSTAGRAM -->
+                        <div class=" hexo-card bg-white border border-[#DDE8D5] rounded-lg p-3 sm:px-4 flex items-center gap-3">
+
+                            <i class="fa-brands fa-instagram text-[#2F5D50] text-base"></i>
+
+                            <p class="text-sm flex-1 truncate">
+                                New coffee shop opening this weekend...
+                            </p>
+
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2 py-1 rounded-full flex-shrink-0">
+                                Published
+                            </span>
+
+                        </div>
+
+
+                        <!-- FACEBOOK -->
+                        <div class="bg-white border border-[#DDE8D5] rounded-lg p-3 sm:px-4 flex items-center gap-3">
+
+                            <i class="fa-brands fa-facebook text-[#2F5D50] text-base"></i>
+
+                            <p class="text-sm flex-1 truncate">
+                                Weekend sale — 20% off all items...
+                            </p>
+
+                            <span class="bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2 py-1 rounded-full flex-shrink-0">
+                                Scheduled
+                            </span>
+
+                        </div>
+
+
+                        <!-- LINKEDIN -->
+                        <div class="bg-white border border-[#DDE8D5] rounded-lg p-3 sm:px-4 flex items-center gap-3">
+
+                            <i class="fa-brands fa-linkedin text-[#2F5D50] text-base"></i>
+
+                            <p class="text-sm flex-1 truncate">
+                                We're hiring! Join our growing team...
+                            </p>
+
+                            <span class="bg-[#E8E5DC] text-[#5C6B58] text-[11px] px-2 py-1 rounded-full flex-shrink-0">
+                                Draft
+                            </span>
+
+                        </div>
+
+
+                        <!-- X -->
+                        <div class="bg-white border border-[#DDE8D5] rounded-lg p-3 sm:px-4 flex items-center gap-3">
+
+                            <i class="fa-brands fa-x-twitter text-[#2F5D50] text-base"></i>
+
+                            <p class="text-sm flex-1 truncate">
+                                Thank you for 10k followers, here's to more...
+                            </p>
+
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2 py-1 rounded-full flex-shrink-0">
+                                Published
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+                <div>
+
+
+                    <!-- PLATFORM PERFORMANCE -->
+                     <div class="animate-fade-up delay-300">
+                    <p class="text-sm font-semibold mb-3 ">
+                        Platform performance
+                    </p>
+                    </div>
+
+
+                    <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 mb-5">
+
+                        <div class="flex flex-col gap-4">
+
+
+                            <!-- INSTAGRAM -->
+                            <div>
+
+                                <div class="flex items-center justify-between text-xs mb-1.5">
+
+                                    <span class="flex items-center gap-1.5">
+
+                                        <i class="fa-brands fa-instagram text-[#2F5D50]"></i>
+
+                                        Instagram
+
+                                    </span>
+
+                                    <span id="instagramValue" class="text-[#8B978A]">
+                                        7.4%
+                                    </span>
+
+                                </div>
+
+
+                                <div id="instagramBar" class="bg-[#EEF3E8] h-1.5 rounded-full">
+
+                                    <div  class="bg-[#2F5D50] h-1.5 rounded-full w-[82%]"></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- FACEBOOK -->
+                            <div>
+
+                                <div class="flex items-center justify-between text-xs mb-1.5">
+
+                                    <span class="flex items-center gap-1.5">
+
+                                        <i class="fa-brands fa-facebook text-[#2F5D50]"></i>
+
+                                        Facebook
+
+                                    </span>
+
+                                    <span id="facebookValue" class="text-[#8B978A]">
+                                        5.1%
+                                    </span>
+
+                                </div>
+
+
+                                <div id="facebookBar" class="bg-[#EEF3E8] h-1.5 rounded-full">
+
+                                    <div class="bg-[#7A8450] h-1.5 rounded-full w-[58%]"></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- LINKEDIN -->
+                            <div>
+
+                                <div class="flex items-center justify-between text-xs mb-1.5">
+
+                                    <span class="flex items-center gap-1.5">
+
+                                        <i class="fa-brands fa-linkedin text-[#2F5D50]"></i>
+
+                                        LinkedIn
+
+                                    </span>
+
+                                    <span id="linkedinValue" class="text-[#8B978A]">
+                                        3.6%
+                                    </span>
+
+                                </div>
+
+
+                                <div id="linkedinBar" class="bg-[#EEF3E8] h-1.5 rounded-full">
+
+                                    <div class="bg-[#B9C7AE] h-1.5 rounded-full w-[38%]"></div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COMING UP -->
+                    <p class="text-sm font-semibold mb-3">
+                        Coming up
+                    </p>
+
+
+                    <div class="bg-white border border-[#DDE8D5] rounded-xl p-1.5">
+
+
+                        <!-- ITEM 1 -->
+                        <div class=" hexo-card flex items-center gap-2.5 p-2.5">
+
+                            <div class="w-9 h-9 rounded-lg bg-[#F0E6C8] flex items-center justify-center flex-shrink-0">
+
+                                <i class="fa-regular fa-clock text-[#8A6D1F] text-sm"></i>
+
+                            </div>
+
+
+                            <div class="min-w-0">
+
+                                <p class="text-xs font-semibold truncate">
+                                    New coffee shop opening
+                                </p>
+
+                                <p class="text-[11px] text-[#8B978A]">
+                                    Today, 7:00 PM
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ITEM 2 -->
+                        <div class=" hexo-card flex items-center gap-2.5 p-2.5">
+
+                            <div class="w-9 h-9 rounded-lg bg-[#F0E6C8] flex items-center justify-center flex-shrink-0">
+
+                                <i class="fa-regular fa-clock text-[#8A6D1F] text-sm"></i>
+
+                            </div>
+
+
+                            <div class="min-w-0">
+
+                                <p class="text-xs font-semibold truncate">
+                                    Weekend sale — 20% off
+                                </p>
+
+                                <p class="text-[11px] text-[#8B978A]">
+                                    Tomorrow, 2:00 PM
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ITEM 3 -->
+                        <div class=" hexo-card flex items-center gap-2.5 p-2.5">
+
+                            <div class="w-9 h-9 rounded-lg bg-[#F0E6C8] flex items-center justify-center flex-shrink-0">
+
+                                <i class="fa-regular fa-clock text-[#8A6D1F] text-sm"></i>
+
+                            </div>
+
+
+                            <div class="min-w-0">
+
+                                <p class="text-xs font-semibold truncate">
+                                    We're hiring! Join our team
+                                </p>
+
+                                <p class="text-[11px] text-[#8B978A]">
+                                    24 Aug, 10:00 AM
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="bg-[#F5F8F1]">
+
+    <!-- MAIN CONTAINER -->
+    <div class="min-h-screen flex">
+
+
+        <!-- SIDEBAR -->
+        <aside
+            class="hidden md:flex w-[210px] min-h-screen bg-[#2F5D50] p-4 flex-col justify-between sticky top-0 animate-fade-down">
+
+            <!-- LOGO + NAV -->
+            <div>
+
+                <!-- LOGO -->
+                <a href="overview.html"
+                    class="flex items-center gap-2 px-2 mb-7">
+
+                    <div
+                        class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+                    <span class="text-white font-semibold text-[15px]">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <!-- NAVIGATION -->
+                <div class="flex flex-col gap-1">
+
+
+                    <!-- OVERVIEW -->
+                    <a href="overview.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-chart-pie w-4"></i>
+                        Overview
+
+                    </a>
+
+
+                    <!-- CREATE POST -->
+                    <a href="createpost.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-pen-to-square w-4"></i>
+                        Create post
+
+                    </a>
+
+
+                    <!-- CONTENT CALENDAR -->
+                    <a href="contentcalender.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-calendar-days w-4"></i>
+                        Content calendar
+
+                    </a>
+
+
+                    <!-- SCHEDULED POSTS -->
+                    <a href="schedulepost.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-regular fa-clock w-4"></i>
+                        Scheduled posts
+
+                    </a>
+
+
+                    <!-- CONTENT HISTORY -->
+                    <a href="contenthistory.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-clock-rotate-left w-4"></i>
+                        Content history
+
+                    </a>
+
+
+                    <!-- ANALYTICS -->
+                    <a href="analytic.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-chart-column w-4"></i>
+                        Analytics
+
+                    </a>
+
+
+                    <!-- SETTINGS ACTIVE -->
+                    <a href="setting.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-white/15 text-white text-xs">
+
+                        <i class="fa-solid fa-gear w-4"></i>
+                        Settings
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- USER -->
+            <div
+                class="flex items-center gap-2 px-2 py-2.5 border-t border-white/10 mt-4">
+
+                <div
+                    class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-xs font-semibold flex-shrink-0">
+
+                    YK
+
+                </div>
+
+                <div class="min-w-0">
+
+                    <p class="text-xs text-white font-semibold truncate">
+                        Yesra
+                    </p>
+
+                    <p class="text-[11px] text-[#B9C7AE] truncate">
+                        yesra@hexovate.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
+
+
+            <!-- MOBILE HEADER -->
+            <div
+                class="md:hidden flex items-center justify-between mb-6 animate-fade-down">
+
+                <a href="overview.html"
+                    class="flex items-center gap-2">
+
+                    <div
+                        class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+                    <span class="font-semibold text-[#26352D]">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white btn-sheen">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PAGE HEADING -->
+            <h2 class="text-lg font-semibold text-[#26352D] mb-5 animate-fade-down">
+                Settings
+            </h2>
+
+
+
+            <!-- SETTINGS GRID -->
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+
+
+                <!-- LEFT COLUMN -->
+                <div>
+
+
+                    <!-- PROFILE -->
+                    <p class="text-[13px] font-semibold text-[#26352D] mb-3 animate-fade-up">
+                        Profile
+                    </p>
+
+
+                    <div
+                        class="bg-white border border-[#DDE8D5] rounded-xl p-5 mb-5 hexo-card animate-scale-in">
+
+                        <!-- PROFILE PHOTO -->
+                        <div
+                            class="flex items-center gap-3 mb-4">
+
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#7A8450] flex items-center justify-center text-white font-semibold">
+
+                                YK
+
+                            </div>
+
+
+                            <div>
+
+                                <button
+                                    class="border border-[#DDE8D5] bg-white text-[#2F5D50] text-xs px-3 py-1.5 rounded-lg hover:bg-[#F5F8F1] mr-2 btn-sheen">
+
+                                    Change photo
+
+                                </button>
+
+
+                                <button
+                                    class="text-[#8B978A] text-xs hover:text-[#A33131] btn-secondary">
+
+                                    Remove
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- FULL NAME -->
+                        <label
+                            class="block text-xs text-[#5C6B58] mb-1.5">
+
+                            Full name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            value="Yesra"
+                            class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3 py-2.5 text-sm text-[#26352D] outline-none focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450] mb-3.5">
+
+
+
+                        <!-- EMAIL -->
+                        <label
+                            class="block text-xs text-[#5C6B58] mb-1.5">
+
+                            Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            value="yesra@hexovate.com"
+                            class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3 py-2.5 text-sm text-[#26352D] outline-none focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450] mb-3.5">
+
+
+
+                        <!-- BUSINESS NAME -->
+                        <label
+                            class="block text-xs text-[#5C6B58] mb-1.5">
+
+                            Business name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            value="Hexovate Cafe"
+                            class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3 py-2.5 text-sm text-[#26352D] outline-none focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450]">
+
+                    </div>
+
+
+
+                    <!-- CONNECTED ACCOUNTS -->
+                    <p class="text-[13px] font-semibold text-[#26352D] mb-3 animate-fade-up delay-200">
+                        Connected accounts
+                    </p>
+
+
+                    <div
+                        class="bg-white border border-[#DDE8D5] rounded-xl p-2 mb-5 hexo-card animate-scale-in delay-200">
+
+
+                        <!-- INSTAGRAM -->
+                        <div
+                            class="flex items-center gap-2.5 px-3 py-2.5">
+
+                            <i
+                                class="fa-brands fa-instagram text-[#2F5D50] text-lg w-5">
+                            </i>
+
+                            <span class="flex-1 text-[13px] text-[#26352D]">
+                                Instagram
+                            </span>
+
+                            <span
+                                class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
+
+                                Connected
+
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- FACEBOOK -->
+                        <div
+                            class="flex items-center gap-2.5 px-3 py-2.5">
+
+                            <i
+                                class="fa-brands fa-facebook text-[#2F5D50] text-lg w-5">
+                            </i>
+
+                            <span class="flex-1 text-[13px] text-[#26352D]">
+                                Facebook
+                            </span>
+
+                            <span
+                                class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
+
+                                Connected
+
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- LINKEDIN -->
+                        <div
+                            class="flex items-center gap-2.5 px-3 py-2.5">
+
+                            <i
+                                class="fa-brands fa-linkedin text-[#8B978A] text-lg w-5">
+                            </i>
+
+                            <span class="flex-1 text-[13px] text-[#26352D]">
+                                LinkedIn
+                            </span>
+
+                            <button
+                                class="border border-[#DDE8D5] text-[#5C6B58] text-[11px] px-2.5 py-1 rounded-full hover:bg-[#F5F8F1] btn-secondary">
+
+                                Connect
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- X -->
+                        <div
+                            class="flex items-center gap-2.5 px-3 py-2.5">
+
+                            <i
+                                class="fa-brands fa-x-twitter text-[#8B978A] text-lg w-5">
+                            </i>
+
+                            <span class="flex-1 text-[13px] text-[#26352D]">
+                                X
+                            </span>
+
+                            <button
+                                class="border border-[#DDE8D5] text-[#5C6B58] text-[11px] px-2.5 py-1 rounded-full hover:bg-[#F5F8F1] btn-secondary">
+
+                                Connect
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SAVE BUTTON -->
+                    <button
+                        class="bg-[#2F5D50] text-white text-[13px] font-semibold px-5 py-2.5 rounded-lg hover:bg-[#24493E] btn-sheen animate-scale-in delay-300">
+
+                        <i class="fa-solid fa-check mr-1.5"></i>
+
+                        Save changes
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- RIGHT COLUMN -->
+                <div>
+
+
+                    <!-- NOTIFICATIONS -->
+                    <p class="text-[13px] font-semibold text-[#26352D] mb-3 animate-fade-up delay-100">
+                        Notifications
+                    </p>
+
+
+                    <div
+                        class="bg-white border border-[#DDE8D5] rounded-xl p-2 mb-5 hexo-card animate-scale-in delay-100">
+
+
+                        <!-- POST PUBLISHED -->
+                        <div
+                            class="flex items-center gap-3 px-3 py-2.5">
+
+                            <span
+                                class="flex-1 text-[13px] text-[#26352D]">
+
+                                Post published
+
+                            </span>
+
+                            <button
+                                class="notification-toggle w-[34px] h-[19px] rounded-full bg-[#2F5D50] relative">
+
+                                <span
+                                    class="absolute w-[15px] h-[15px] bg-white rounded-full top-[2px] right-[2px]">
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- POST FAILED -->
+                        <div
+                            class="flex items-center gap-3 px-3 py-2.5">
+
+                            <span
+                                class="flex-1 text-[13px] text-[#26352D]">
+
+                                Post failed
+
+                            </span>
+
+                            <button
+                                class="notification-toggle w-[34px] h-[19px] rounded-full bg-[#2F5D50] relative">
+
+                                <span
+                                    class="absolute w-[15px] h-[15px] bg-white rounded-full top-[2px] right-[2px]">
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- WEEKLY SUMMARY -->
+                        <div
+                            class="flex items-center gap-3 px-3 py-2.5">
+
+                            <span
+                                class="flex-1 text-[13px] text-[#26352D]">
+
+                                Weekly performance summary
+
+                            </span>
+
+                            <button
+                                class="notification-toggle w-[34px] h-[19px] rounded-full bg-[#DDE8D5] relative">
+
+                                <span
+                                    class="absolute w-[15px] h-[15px] bg-white rounded-full top-[2px] left-[2px]">
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- PRODUCT NEWS -->
+                        <div
+                            class="flex items-center gap-3 px-3 py-2.5">
+
+                            <span
+                                class="flex-1 text-[13px] text-[#26352D]">
+
+                                Product news and tips
+
+                            </span>
+
+                            <button
+                                class="notification-toggle w-[34px] h-[19px] rounded-full bg-[#DDE8D5] relative">
+
+                                <span
+                                    class="absolute w-[15px] h-[15px] bg-white rounded-full top-[2px] left-[2px]">
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PLAN AND BILLING -->
+                    <p class="text-[13px] font-semibold text-[#26352D] mb-3 animate-fade-up delay-200">
+                        Plan and billing
+                    </p>
+
+
+                    <div
+                        class="bg-white border border-[#DDE8D5] rounded-xl p-5 mb-5 hexo-card animate-scale-in delay-200">
+
+
+                        <div
+                            class="flex items-center justify-between gap-3 mb-1.5">
+
+                            <p
+                                class="text-sm font-semibold text-[#26352D]">
+
+                                Growth plan
+
+                            </p>
+
+                            <span
+                                class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
+
+                                Active
+
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="text-xs text-[#8B978A] mb-3.5">
+
+                            $29/month · renews 1 Sep 2026
+
+                        </p>
+
+
+                        <button
+                            class="border border-[#DDE8D5] bg-white text-[#2F5D50] text-xs px-3.5 py-2 rounded-lg hover:bg-[#F5F8F1] btn-secondary">
+
+                            <i class="fa-solid fa-credit-card mr-1.5"></i>
+
+                            Manage plan
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- DANGER ZONE -->
+                    <p class="text-[13px] font-semibold text-[#A33131] mb-3 animate-fade-up delay-300">
+                        Danger zone
+                    </p>
+
+
+                    <div
+                        class="bg-[#FDF4F4] border border-[#F0D5D5] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 hexo-card animate-scale-in delay-300">
+
+
+                        <div>
+
+                            <p
+                                class="text-[13px] text-[#26352D] font-semibold mb-0.5">
+
+                                Delete account
+
+                            </p>
+
+                            <p
+                                class="text-xs text-[#8B978A]">
+
+                                Permanently remove your account and data.
+
+                            </p>
+
+                        </div>
+
+
+                        <button  id="deleteAccount"
+                            class="w-fit border border-[#C97A7A] bg-white text-[#A33131] text-xs px-3.5 py-2 rounded-lg hover:bg-[#FDF4F4] btn-secondary">
+
+                            <i class="fa-solid fa-trash mr-1.5"></i>
+
+                            Delete
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="bg-[#F5F8F1]">
+
+    <!-- MAIN CONTAINER -->
+    <div class="min-h-screen flex">
+
+
+        <!-- SIDEBAR -->
+        <aside
+            class="hidden md:flex w-[210px] min-h-screen bg-[#2F5D50] p-4 flex-col justify-between sticky top-0 animate-fade-down">
+
+
+            <!-- LOGO + NAV -->
+            <div>
+
+                <!-- LOGO -->
+                <a href="overview.html"
+                    class="flex items-center gap-2 px-2 mb-7">
+
+                    <div
+                        class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+                    <span class="text-white font-semibold text-base">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <!-- NAVIGATION -->
+                <div class="flex flex-col gap-1">
+
+
+                    <a href="overview.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-chart-pie w-4"></i>
+                        Overview
+
+                    </a>
+
+
+                    <a href="createpost.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-pen-to-square w-4"></i>
+                        Create post
+
+                    </a>
+
+
+                    <a href="contentcalender.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-calendar-days w-4"></i>
+                        Content calendar
+
+                    </a>
+
+
+                    <!-- ACTIVE -->
+                    <a href="schedulepost.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-white/15 text-white text-xs">
+
+                        <i class="fa-regular fa-clock w-4"></i>
+                        Scheduled posts
+
+                    </a>
+
+
+                    <a href="contenthistory.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-clock-rotate-left w-4"></i>
+                        Content history
+
+                    </a>
+
+
+                    <a href="analytic.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-chart-column w-4"></i>
+                        Analytics
+
+                    </a>
+
+
+                    <a href="setting.html"
+                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+
+                        <i class="fa-solid fa-gear w-4"></i>
+                        Settings
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- USER -->
+            <div
+                class="flex items-center gap-2 px-2 py-2.5 border-t border-white/10 mt-4">
+
+                <div
+                    class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-xs font-semibold flex-shrink-0">
+
+                    YK
+
+                </div>
+
+                <div class="min-w-0">
+
+                    <p class="text-xs text-white font-semibold truncate">
+                        Yesra 
+                    </p>
+
+                    <p class="text-[11px] text-[#B9C7AE] truncate">
+                        yesra@hexovate.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
+
+
+            <!-- MOBILE HEADER -->
+            <div class="md:hidden flex items-center justify-between mb-6 animate-fade-down delay-200">
+
+                <a href="overview.html"
+                    class="flex items-center gap-2">
+
+                    <div
+                        class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+
+                    </div>
+
+                    <span class="font-semibold text-[#26352D]">
+                        Hexovate
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PAGE HEADER -->
+            <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5 animate-fade-down delay-200">
+
+
+                <h2 class="text-lg font-semibold text-[#26352D]">
+                    Scheduled posts
+                </h2>
+
+
+                <a href="contentcalender.html"
+                    class=" btn-secondary w-fit flex items-center gap-2 border border-[#DDE8D5] bg-white text-[#2F5D50] text-xs px-3.5 py-2 rounded-lg hover:bg-[#F5F8F1]">
+
+                    <i class="fa-solid fa-calendar-days text-sm"></i>
+
+                    View calendar
+
+                </a>
+
+            </div>
+
+
+
+            <!-- STATS -->
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-5 animate-fade-up delay-300">
+
+
+                <!-- STAT 1 -->
+                <div
+                    class=" hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4">
+
+                    <p class="text-[11px] text-[#8B978A] mb-1.5">
+                        Upcoming this week
+                    </p>
+
+                    <p class="text-[22px] font-semibold text-[#26352D]">
+                        5
+                    </p>
+
+                </div>
+
+
+                <!-- STAT 2 -->
+                <div
+                    class=" hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4">
+
+                    <p class="text-[11px] text-[#8B978A] mb-1.5">
+                        Next post
+                    </p>
+
+                    <p class="text-[22px] font-semibold text-[#7A8450]">
+                        Today
+                    </p>
+
+                </div>
+
+
+                <!-- STAT 3 -->
+                <div
+                    class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4">
+
+                    <p class="text-[11px] text-[#8B978A] mb-1.5">
+                        Platforms queued
+                    </p>
+
+                    <p class="text-[22px] font-semibold text-[#2F5D50]">
+                        4
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SCHEDULED POSTS -->
+            <div class="flex flex-col gap-2.5 animate-fade-up delay-400">
+
+
+                <!-- POST 1 -->
+                <div
+                    class=" hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
+
+
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
+
+                        <i class="fa-brands fa-instagram text-[#2F5D50] text-lg"></i>
+
+                    </div>
+
+
+                    <div class="flex-1 min-w-0">
+
+                        <p
+                            class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
+
+                            New coffee shop opening
+
+                        </p>
+
+                        <p class="text-xs text-[#8B978A] truncate">
+
+                            Instagram · 20 Aug, 7:00 PM
+
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0">
+
+                        Scheduled
+
+                    </span>
+
+
+                    <button
+                        class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0">
+
+                        <i class="fa-solid fa-ellipsis text-sm"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- POST 2 -->
+                <div
+                    class=" hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
+
+
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
+
+                        <i class="fa-brands fa-facebook text-[#2F5D50] text-lg"></i>
+
+                    </div>
+
+
+                    <div class="flex-1 min-w-0">
+
+                        <p
+                            class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
+
+                            Weekend sale — 20% off
+
+                        </p>
+
+                        <p class="text-xs text-[#8B978A] truncate">
+
+                            Facebook · 21 Aug, 2:00 PM
+
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full">
+
+                        Scheduled
+
+                    </span>
+
+
+                    <button
+                        class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0">
+
+                        <i class="fa-solid fa-ellipsis text-sm"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- POST 3 -->
+                <div
+                    class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
+
+
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
+
+                        <i class="fa-brands fa-linkedin text-[#2F5D50] text-lg"></i>
+
+                    </div>
+
+
+                    <div class="flex-1 min-w-0">
+
+                        <p
+                            class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
+
+                            We're hiring! Join our team
+
+                        </p>
+
+                        <p class="text-xs text-[#8B978A] truncate">
+
+                            LinkedIn · 24 Aug, 10:00 AM
+
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full">
+
+                        Scheduled
+
+                    </span>
+
+
+                    <button
+                        class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0">
+
+                        <i class="fa-solid fa-ellipsis text-sm"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- POST 4 -->
+                <div
+                    class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
+
+
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
+
+                        <i class="fa-brands fa-x-twitter text-[#2F5D50] text-lg"></i>
+
+                    </div>
+
+
+                    <div class="flex-1 min-w-0">
+
+                        <p
+                            class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
+
+                            Thank you for 10k followers
+
+                        </p>
+
+                        <p class="text-xs text-[#8B978A] truncate">
+
+                            X · 25 Aug, 5:30 PM
+
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full">
+
+                        Scheduled
+
+                    </span>
+
+
+                    <button
+                        class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0">
+
+                        <i class="fa-solid fa-ellipsis text-sm"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- POST 5 -->
+                <div
+                    class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
+
+
+                    <div
+                        class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
+
+                        <i class="fa-brands fa-instagram text-[#2F5D50] text-lg"></i>
+
+                    </div>
+
+
+                    <div class="flex-1 min-w-0">
+
+                        <p
+                            class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
+
+                            Behind the scenes: roasting day
+
+                        </p>
+
+                        <p class="text-xs text-[#8B978A] truncate">
+
+                            Instagram · 27 Aug, 11:00 AM
+
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full">
+
+                        Scheduled
+
+                    </span>
+
+
+                    <button
+                        class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0">
+
+                        <i class="fa-solid fa-ellipsis text-sm"></i>
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
