@@ -4,652 +4,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hexovate - Analytics</title>
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <link rel="stylesheet" href="./output.css">
+
+    <!-- HORIZONTAL SCROLLBAR REMOVER -->
+    <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+    </style>
 </head>
 
-<body class="bg-[#F5F8F1]">
+<body class="bg-[#F5F8F1] overflow-x-hidden w-full relative">
 
-    <!-- MAIN CONTAINER -->
-    <div class="min-h-screen flex">
+    <!-- 1. DARK OVERLAY (Bahar click karne par sidebar band hoga) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
 
+    <!-- 2. MAIN CONTAINER -->
+    <div class="min-h-screen flex w-full overflow-x-hidden">
 
         <!-- SIDEBAR -->
-        <aside
-            class="hidden md:flex w-[190px] min-h-screen bg-[#14665B] p-4 flex-col justify-between sidebar-animation">
+        <aside id="sidebar" class="hidden md:flex fixed md:static inset-y-0 left-0 z-50 w-[200px] bg-[#2F5D50] min-h-screen flex-col justify-between p-4 shadow-2xl md:shadow-none">
 
-            <!-- TOP -->
+            <!-- TOP SIDEBAR -->
             <div>
 
-                <!-- LOGO -->
-                <a href="overview.html"
-                    class="flex items-center gap-2 px-2 mb-8">
+                <!-- LOGO & CLOSE (X) BUTTON IN ONE ROW -->
+                <div class="flex items-center justify-between mb-6 px-1">
+                    <!-- Logo -->
+                    <a href="overview.html" class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
+                        </div>
+                        <span class="text-white font-semibold text-sm">
+                            Hexovate
+                        </span>
+                    </a>
 
-                    <div
-                        class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center">
-
-                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
-
-                    </div>
-
-                    <span class="text-white font-semibold text-sm">
-                        Hexovate
-                    </span>
-
-                </a>
-
+                    <!-- Close Button -->
+                    <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
+                        <i class="fa-solid fa-xmark text-base"></i>
+                    </button>
+                </div>
 
                 <!-- NAVIGATION -->
                 <div class="flex flex-col gap-1">
 
-                    <a href="overview.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#DDE8D5] text-xs hover:bg-white/10">
-
+                    <!-- OVERVIEW -->
+                    <a href="overview.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
-
                     </a>
 
-
-                    <a href="createpost.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#DDE8D5] text-xs hover:bg-white/10">
-
+                    <!-- CREATE POST -->
+                    <a href="createpost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
-
                     </a>
 
-
-                    <a href="contentcalendar.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#DDE8D5] text-xs hover:bg-white/10">
-
+                    <!-- CONTENT CALENDAR -->
+                    <a href="contentcalender.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
-
                     </a>
 
-
-                    <a href="schedulepost.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#DDE8D5] text-xs hover:bg-white/10">
-
+                    <!-- SCHEDULED POSTS -->
+                    <a href="schedulepost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-regular fa-clock w-4"></i>
                         Scheduled posts
-
                     </a>
 
-
-                    <a href="contenthistory.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#DDE8D5] text-xs hover:bg-white/10">
-
+                    <!-- CONTENT HISTORY -->
+                    <a href="contenthistory.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-clock-rotate-left w-4"></i>
                         Content history
-
                     </a>
 
-
-                    <!-- ACTIVE -->
-                    <a href="analytic.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-white/15 text-white text-xs">
-
+                    <!-- ANALYTICS (Active) -->
+                    <a href="analytic.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
-
                     </a>
 
-
-                    <a href="setting.html"
-                        class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#DDE8D5] text-xs hover:bg-white/10">
-
+                    <!-- SETTINGS -->
+                    <a href="setting.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
-
                     </a>
 
                 </div>
 
             </div>
 
-
             <!-- USER -->
-            <div
-                class="border-t border-white/10 pt-3 flex items-center gap-2">
-
-                <div
-                    class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-xs">
-
+            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-1">
+                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-[11px] font-semibold flex-shrink-0">
                     YK
-
                 </div>
-
-                <div>
-
-                    <p class="text-xs text-white font-semibold">
+                <div class="min-w-0">
+                    <p class="text-xs text-white font-semibold truncate">
                         Yesra
                     </p>
-
-                    <p class="text-[9px] text-[#C9D6C2]">
+                    <p class="text-[10px] text-[#B9C7AE] truncate">
                         yesra@hexovate.com
                     </p>
-
                 </div>
-
             </div>
 
         </aside>
 
-
-
-        <!-- MAIN CONTENT -->
-        <main
-            class="flex-1 p-5 sm:p-6 lg:p-8 page-animation">
-
+        <!-- 3. MAIN CONTENT ('min-w-0' add kiya gaya hai) -->
+        <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 page-animation">
 
             <!-- MOBILE HEADER -->
-            <div
-                class="md:hidden flex items-center justify-between mb-5">
-
-                <a href="overview.html"
-                    class="flex items-center gap-2">
-
-                    <div
-                        class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
-
+            <div class="md:hidden flex items-center justify-between mb-5">
+                <a href="overview.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
-
                     </div>
-
                     <span class="font-semibold text-[#26352D]">
                         Hexovate
                     </span>
-
                 </a>
 
-
-                <button
-                    class="w-9 h-9 bg-[#2F5D50] text-white rounded-lg">
-
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
                     <i class="fa-solid fa-bars"></i>
-
                 </button>
-
             </div>
 
-
-
             <!-- TOP HEADER -->
-            <div
-                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
-
-                <h1
-                    class="text-lg font-semibold text-[#26352D] animate-fade-down">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
+                <h1 class="text-lg font-semibold text-[#26352D] animate-fade-down">
                     Analytics
                 </h1>
 
-
-                <select
-                    id="dateRange"
-                    class="w-fit border border-[#DDE8D5] bg-white rounded-lg px-3 py-2 text-xs text-[#5C6B58] outline-none">
-
-                    <option value="30">
-                        Last 30 days
-                    </option>
-
-                    <option value="14">
-                        Last 14 days
-                    </option>
-
-                    <option value="7">
-                        Last 7 days
-                    </option>
-
+                <select id="dateRange" class="w-fit border border-[#DDE8D5] bg-white rounded-lg px-3 py-2 text-xs text-[#5C6B58] outline-none">
+                    <option value="30">Last 30 days</option>
+                    <option value="14">Last 14 days</option>
+                    <option value="7">Last 7 days</option>
                 </select>
-
             </div>
-
-
 
             <!-- STATS -->
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 mb-5">
-
-
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 mb-5">
                 <!-- LIKES -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-1">
-
-                    <p class="text-[10px] text-[#8B978A]">
-                        Likes
-                    </p>
-
-                    <h2
-                        id="likees"
-                        class="text-xl font-medium text-[#26352D] mt-1">
-
-                        3,240
-
-                    </h2>
-
-                    <p
-                        id="likesChange"
-                        class="text-[10px] text-[#7A8450] mt-1">
-
-                        8.1%
-
-                    </p>
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-1">
+                    <p class="text-[10px] text-[#8B978A]">Likes</p>
+                    <h2 id="likees" class="text-xl font-medium text-[#26352D] mt-1">3,240</h2>
+                    <p id="likesChange" class="text-[10px] text-[#7A8450] mt-1">8.1%</p>
                 </div>
-
-
 
                 <!-- COMMENTS -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-2">
-
-                    <p class="text-[10px] text-[#8B978A]">
-                        Comments
-                    </p>
-
-                    <h2
-                        id="comments"
-                        class="text-xl font-medium text-[#26352D] mt-1">
-
-                        412
-
-                    </h2>
-
-                    <p
-                        id="commentsChange"
-                        class="text-[10px] text-[#7A8450] mt-1">
-
-                        3.4%
-
-                    </p>
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-2">
+                    <p class="text-[10px] text-[#8B978A]">Comments</p>
+                    <h2 id="comments" class="text-xl font-medium text-[#26352D] mt-1">412</h2>
+                    <p id="commentsChange" class="text-[10px] text-[#7A8450] mt-1">3.4%</p>
                 </div>
-
-
 
                 <!-- REACH -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-3">
-
-                    <p class="text-[10px] text-[#8B978A]">
-                        Reach
-                    </p>
-
-                    <h2
-                        id="reachs"
-                        class="text-xl font-medium text-[#26352D] mt-1">
-
-                        18.4k
-
-                    </h2>
-
-                    <p
-                        id="reachChange"
-                        class="text-[10px] text-red-500 mt-1">
-
-                        1.2%
-
-                    </p>
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-3">
+                    <p class="text-[10px] text-[#8B978A]">Reach</p>
+                    <h2 id="reachs" class="text-xl font-medium text-[#26352D] mt-1">18.4k</h2>
+                    <p id="reachChange" class="text-[10px] text-red-500 mt-1">1.2%</p>
                 </div>
-
-
 
                 <!-- ENGAGEMENT -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-4">
-
-                    <p class="text-[10px] text-[#8B978A]">
-                        Engagement
-                    </p>
-
-                    <h2
-                        id="engagement"
-                        class="text-xl font-medium text-[#7A8450] mt-1">
-
-                        6.2%
-
-                    </h2>
-
-                    <p
-                        class="text-[10px] text-[#7A8450] mt-1">
-
-                        0.6pt
-
-                    </p>
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card card-animation delay-4">
+                    <p class="text-[10px] text-[#8B978A]">Engagement</p>
+                    <h2 id="engagement" class="text-xl font-medium text-[#7A8450] mt-1">6.2%</h2>
+                    <p class="text-[10px] text-[#7A8450] mt-1">0.6pt</p>
                 </div>
-
             </div>
 
-
-
             <!-- CHARTS -->
-            <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-5">
-
-
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-5">
                 <!-- ENGAGEMENT BY PLATFORM -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-5 smooth-card card-animation delay-2">
-
-                    <h2
-                        class="text-xs font-medium text-[#26352D] mb-6">
-
-                        Engagement by platform
-
-                    </h2>
-
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-5 smooth-card card-animation delay-2">
+                    <h2 class="text-xs font-medium text-[#26352D] mb-6">Engagement by platform</h2>
                     <!-- BARS -->
-                    <div
-                        class="h-[135px] flex items-end justify-center gap-7 sm:gap-10">
-
-
+                    <div class="h-[135px] flex items-end justify-center gap-7 sm:gap-10">
                         <!-- INSTAGRAM -->
-                        <div
-                            class="h-full flex flex-col justify-end items-center">
-
-                            <div
-                                id="instagramBars"
-                                class="w-9 sm:w-10 bg-[#14665B] rounded-t-md"
-                                style="height: 85px;">
-                            </div>
-
-                            <p class="text-[9px] text-[#5C6B58] mt-2">
-                                Instagram
-                            </p>
-
+                        <div class="h-full flex flex-col justify-end items-center">
+                            <div id="instagramBars" class="w-9 sm:w-10 bg-[#14665B] rounded-t-md" style="height: 85px;"></div>
+                            <p class="text-[9px] text-[#5C6B58] mt-2">Instagram</p>
                         </div>
-
-
-
                         <!-- FACEBOOK -->
-                        <div
-                            class="h-full flex flex-col justify-end items-center">
-
-                            <div
-                                id="facebookBars"
-                                class="w-9 sm:w-10 bg-[#7A8450] rounded-t-md"
-                                style="height: 60px;">
-                            </div>
-
-                            <p class="text-[9px] text-[#5C6B58] mt-2">
-                                Facebook
-                            </p>
-
+                        <div class="h-full flex flex-col justify-end items-center">
+                            <div id="facebookBars" class="w-9 sm:w-10 bg-[#7A8450] rounded-t-md" style="height: 60px;"></div>
+                            <p class="text-[9px] text-[#5C6B58] mt-2">Facebook</p>
                         </div>
-
-
-
                         <!-- LINKEDIN -->
-                        <div
-                            class="h-full flex flex-col justify-end items-center">
-
-                            <div
-                                id="linkedinBars"
-                                class="w-9 sm:w-10 bg-[#AFC2A9] rounded-t-md"
-                                style="height: 38px;">
-                            </div>
-
-                            <p class="text-[9px] text-[#5C6B58] mt-2">
-                                LinkedIn
-                            </p>
-
+                        <div class="h-full flex flex-col justify-end items-center">
+                            <div id="linkedinBars" class="w-9 sm:w-10 bg-[#AFC2A9] rounded-t-md" style="height: 38px;"></div>
+                            <p class="text-[9px] text-[#5C6B58] mt-2">LinkedIn</p>
                         </div>
-
-
-
                         <!-- X -->
-                        <div
-                            class="h-full flex flex-col justify-end items-center">
-
-                            <div
-                                id="xBars"
-                                class="w-9 sm:w-10 bg-[#D9E5D4] rounded-t-md"
-                                style="height: 50px;">
-                            </div>
-
-                            <p class="text-[9px] text-[#5C6B58] mt-2">
-                                X
-                            </p>
-
+                        <div class="h-full flex flex-col justify-end items-center">
+                            <div id="xBars" class="w-9 sm:w-10 bg-[#D9E5D4] rounded-t-md" style="height: 50px;"></div>
+                            <p class="text-[9px] text-[#5C6B58] mt-2">X</p>
                         </div>
-
                     </div>
-
                 </div>
 
-
-
                 <!-- REACH OVER TIME -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-5 smooth-card card-animation delay-3">
-
-                    <h2
-                        class="text-xs font-medium text-[#26352D] mb-4">
-
-                        Reach over time
-
-                    </h2>
-
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-5 smooth-card card-animation delay-3">
+                    <h2 class="text-xs font-medium text-[#26352D] mb-4">Reach over time</h2>
                     <!-- GRAPH -->
-                    <div
-                        class="relative h-[135px]">
-
-
+                    <div class="relative h-[135px]">
                         <!-- AREA -->
-                        <div
-                            id="reachArea"
-                            class="absolute bottom-5 left-[15%] w-[65%] h-[85px] bg-[#E8EFEC] clip-path-polygon">
-                        </div>
-
-
+                        <div id="reachArea" class="absolute bottom-5 left-[15%] w-[65%] h-[85px] bg-[#E8EFEC] clip-path-polygon"></div>
                         <!-- LINE -->
-                        <svg
-                            class="absolute inset-0 w-full h-full"
-                            viewBox="0 0 500 150"
-                            preserveAspectRatio="none">
-
-                            <polyline
-                                id="reachLine"
-                                class="graph-line"
-                                points="90,105 150,90 200,110 255,70 310,82 360,38 420,25"
-                                fill="none"
-                                stroke="#14665B"
-                                stroke-width="2.5" />
-
+                        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 500 150" preserveAspectRatio="none">
+                            <polyline id="reachLine" class="graph-line" points="90,105 150,90 200,110 255,70 310,82 360,38 420,25" fill="none" stroke="#14665B" stroke-width="2.5" />
                         </svg>
-
-
                         <!-- WEEKS -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 flex justify-between text-[9px] text-[#8B978A]">
-
+                        <div class="absolute bottom-0 left-0 right-0 flex justify-between text-[9px] text-[#8B978A]">
                             <span>Wk 1</span>
                             <span>Wk 2</span>
                             <span>Wk 3</span>
                             <span>Wk 4</span>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
-
-
             <!-- TOP PERFORMING POSTS -->
-            <div
-                class="bg-white border border-[#DDE8D5] rounded-xl p-5 overflow-x-auto smooth-card card-animation delay-4">
+            <div class="bg-white border border-[#DDE8D5] rounded-xl p-5 overflow-x-auto smooth-card card-animation delay-4">
+                <h2 class="text-xs font-medium text-[#26352D] mb-4">Top performing posts</h2>
 
-                <h2
-                    class="text-xs font-medium text-[#26352D] mb-4">
-
-                    Top performing posts
-
-                </h2>
-
-
-                <table class="w-full min-w-[650px]">
-
-
+                <table class="w-full min-w-[550px]">
                     <!-- HEADER -->
                     <thead>
-
-                        <tr
-                            class="border-b border-[#DDE8D5] text-[9px] text-[#8B978A] text-left">
-
-                            <th class="pb-2 font-normal">
-                                Post
-                            </th>
-
-                            <th class="pb-2 font-normal">
-                                Platform
-                            </th>
-
-                            <th class="pb-2 font-normal">
-                                Likes
-                            </th>
-
-                            <th class="pb-2 font-normal">
-                                Comments
-                            </th>
-
-                            <th class="pb-2 font-normal">
-                                Reach
-                            </th>
-
+                        <tr class="border-b border-[#DDE8D5] text-[9px] text-[#8B978A] text-left">
+                            <th class="pb-2 font-normal">Post</th>
+                            <th class="pb-2 font-normal">Platform</th>
+                            <th class="pb-2 font-normal">Likes</th>
+                            <th class="pb-2 font-normal">Comments</th>
+                            <th class="pb-2 font-normal">Reach</th>
                         </tr>
-
                     </thead>
-
-
 
                     <!-- BODY -->
                     <tbody>
-
-
-                        <tr
-                            class="border-b border-[#E8EEE4]">
-
-                            <td class="py-3 text-[10px] text-[#26352D]">
-                                New coffee shop opening this weekend
-                            </td>
-
-                            <td class="py-3 text-[10px] text-[#5C6B58]">
-                                Instagram
-                            </td>
-
-                            <td
-                                id="postLikes1"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                612
-                            </td>
-
-                            <td
-                                id="postComments1"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                84
-                            </td>
-
-                            <td
-                                id="postReach1"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                4.1k
-                            </td>
-
+                        <tr class="border-b border-[#E8EEE4]">
+                            <td class="py-3 text-[10px] text-[#26352D]">New coffee shop opening this weekend</td>
+                            <td class="py-3 text-[10px] text-[#5C6B58]">Instagram</td>
+                            <td id="postLikes1" class="py-3 text-[10px] text-[#26352D]">612</td>
+                            <td id="postComments1" class="py-3 text-[10px] text-[#26352D]">84</td>
+                            <td id="postReach1" class="py-3 text-[10px] text-[#26352D]">4.1k</td>
                         </tr>
 
-
-
-                        <tr
-                            class="border-b border-[#E8EEE4]">
-
-                            <td class="py-3 text-[10px] text-[#26352D]">
-                                Weekend sale — 20% off all items
-                            </td>
-
-                            <td class="py-3 text-[10px] text-[#5C6B58]">
-                                Facebook
-                            </td>
-
-                            <td
-                                id="postLikes2"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                498
-                            </td>
-
-                            <td
-                                id="postComments2"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                61
-                            </td>
-
-                            <td
-                                id="postReach2"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                3.4k
-                            </td>
-
+                        <tr class="border-b border-[#E8EEE4]">
+                            <td class="py-3 text-[10px] text-[#26352D]">Weekend sale — 20% off all items</td>
+                            <td class="py-3 text-[10px] text-[#5C6B58]">Facebook</td>
+                            <td id="postLikes2" class="py-3 text-[10px] text-[#26352D]">498</td>
+                            <td id="postComments2" class="py-3 text-[10px] text-[#26352D]">61</td>
+                            <td id="postReach2" class="py-3 text-[10px] text-[#26352D]">3.4k</td>
                         </tr>
-
-
 
                         <tr>
-
-                            <td class="py-3 text-[10px] text-[#26352D]">
-                                Behind the scenes at Hexovate
-                            </td>
-
-                            <td class="py-3 text-[10px] text-[#5C6B58]">
-                                LinkedIn
-                            </td>
-
-                            <td
-                                id="postLikes3"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                355
-                            </td>
-
-                            <td
-                                id="postComments3"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                47
-                            </td>
-
-                            <td
-                                id="postReach3"
-                                class="py-3 text-[10px] text-[#26352D]">
-                                2.9k
-                            </td>
-
+                            <td class="py-3 text-[10px] text-[#26352D]">Behind the scenes at Hexovate</td>
+                            <td class="py-3 text-[10px] text-[#5C6B58]">LinkedIn</td>
+                            <td id="postLikes3" class="py-3 text-[10px] text-[#26352D]">355</td>
+                            <td id="postComments3" class="py-3 text-[10px] text-[#26352D]">47</td>
+                            <td id="postReach3" class="py-3 text-[10px] text-[#26352D]">2.9k</td>
                         </tr>
-
-
                     </tbody>
-
                 </table>
-
             </div>
-
 
         </main>
 
     </div>
 
-
+    <!-- SCRIPT -->
     <script src="script.js"></script>
 
 </body>
-
 </html>

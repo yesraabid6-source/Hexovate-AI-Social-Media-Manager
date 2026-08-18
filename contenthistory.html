@@ -3,589 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hexovate - Content History</title>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- 1. [CHANGE] HORIZONTAL SCROLLBAR REMOVER -->
+    <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+    </style>
 </head>
-<body class="bg-[#F5F8F1]">
 
-    <!-- MAIN CONTAINER -->
-    <div class="min-h-screen flex">
+<!-- 2. [CHANGE] overflow-x-hidden add kiya gaya -->
+<body class="bg-[#F5F8F1] overflow-x-hidden w-full relative">
 
+    <!-- 3. [CHANGE] DARK OVERLAY (Mobile par peeche ka content blur/dark karne ke liye) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
+
+    <!-- 4. [CHANGE] MAIN CONTAINER (w-full overflow-x-hidden add kiya) -->
+    <div class="min-h-screen flex w-full overflow-x-hidden">
 
         <!-- SIDEBAR -->
-        <aside
-            class="hidden md:flex w-[210px] min-h-screen bg-[#2F5D50] p-4 flex-col justify-between sticky top-0 animate-fade-down">
+        <aside id="sidebar" class="hidden md:flex fixed md:static inset-y-0 left-0 z-50 w-[210px] bg-[#2F5D50] min-h-screen flex-col justify-between p-4 shadow-2xl md:shadow-none">
 
-
-            <!-- LOGO + NAV -->
+            <!-- TOP SIDEBAR -->
             <div>
 
-                <!-- LOGO -->
-                <a href="overview.html"
-                    class="flex items-center gap-2 px-2 mb-7">
+                <!-- LOGO & CLOSE (X) BUTTON IN ONE ROW -->
+                <div class="flex items-center justify-between px-2 mb-7">
 
-                    <div
-                        class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center">
+                    <!-- LOGO -->
+                    <a href="overview.html" class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center">
+                            <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+                        </div>
+                        <span class="text-white font-semibold text-base">
+                            Hexovate
+                        </span>
+                    </a>
 
-                        <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+                    <!-- CLOSE (X) BUTTON -->
+                    <button onclick="toggleSidebar()" class="md:hidden text-white/70 hover:text-white p-1 cursor-pointer">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
 
-                    </div>
-
-                    <span class="text-white font-semibold text-base">
-                        Hexovate
-                    </span>
-
-                </a>
-
+                </div>
 
                 <!-- NAVIGATION -->
                 <div class="flex flex-col gap-1">
 
-
-                    <a href="overview.html"
-                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
-
+                    <a href="overview.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
-
                     </a>
 
-
-                    <a href="createpost.html"
-                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
-
+                    <a href="createpost.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
-
                     </a>
 
-
-                    <a href="contentcalender.html"
-                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
-
+                    <a href="contentcalender.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
-
                     </a>
 
+                    <a href="schedulepost.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        <i class="fa-regular fa-clock w-4"></i>
+                        Scheduled posts
+                    </a>
 
-                 <a href="schedulepost.html"
-    class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
-
-    <i class="fa-regular fa-clock w-4"></i>
-
-    Scheduled posts
-
-</a>
                     <!-- ACTIVE PAGE -->
-                  <a href="contenthistory.html"
-    class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-white/15 text-white text-xs">
+                    <a href="contenthistory.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-white/15 text-white text-xs">
+                        <i class="fa-solid fa-clock-rotate-left w-4"></i>
+                        Content history
+                    </a>
 
-    <i class="fa-solid fa-clock-rotate-left w-4"></i>
-
-    Content history
-
-</a>
-
-
-                    <a href="analytic.html"
-                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
-
+                    <a href="analytic.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
-
                     </a>
 
-
-                    <a href="setting.html"
-                        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
-
+                    <a href="setting.html" class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
-
                     </a>
 
                 </div>
 
             </div>
 
-
             <!-- USER -->
-            <div
-                class="flex items-center gap-2 px-2 py-2.5 border-t border-white/10">
-
-                <div
-                    class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-xs font-semibold">
-
+            <div class="flex items-center gap-2 px-2 py-2.5 border-t border-white/10">
+                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-xs font-semibold">
                     YK
-
                 </div>
-
                 <div class="min-w-0">
-
                     <p class="text-xs text-white font-semibold truncate">
-                        Yesra Khan
+                        Yesra
                     </p>
-
                     <p class="text-[11px] text-[#B9C7AE] truncate">
                         yesra@hexovate.com
                     </p>
-
                 </div>
-
             </div>
 
         </aside>
 
-
-
-        <!-- MAIN CONTENT -->
-        <main class="flex-1 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
-
+        <!-- 5. [CHANGE] MAIN CONTENT ('min-w-0' add kiya gaya hai) -->
+        <main class="flex-1 min-w-0 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
 
             <!-- MOBILE HEADER -->
             <div class="md:hidden flex items-center justify-between mb-6 animate-fade-down">
-
-                <a href="overview.html"
-                    class="flex items-center gap-2">
-
-                    <div
-                        class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
-
+                <a href="overview.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
-
                     </div>
-
                     <span class="font-semibold text-[#26352D]">
                         Hexovate
                     </span>
-
                 </a>
 
-
-                <button
-                    class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white">
-
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
                     <i class="fa-solid fa-bars"></i>
-
                 </button>
-
             </div>
 
-
-
             <!-- TOP SECTION -->
-            <div
-                class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-5 animate-fade-down">
-
-
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-5 animate-fade-down">
                 <!-- TITLE -->
                 <h2 class="text-lg font-semibold text-[#26352D]">
                     Content history
                 </h2>
 
-
                 <!-- SEARCH + FILTERS -->
-                <div
-                    class="flex flex-col sm:flex-row gap-3">
-
-
+                <div class="flex flex-col sm:flex-row gap-3">
                     <!-- SEARCH -->
                     <div class="relative">
-
-                        <i
-                            class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-xs">
-                        </i>
-
-                        <input
-                            type="text"
-                            placeholder="Search posts"
-                            class="w-full sm:w-[180px] border border-[#DDE8D5] bg-white rounded-lg py-2 pl-8 pr-3 text-xs outline-none focus:border-[#7A8450]">
-
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-xs"></i>
+                        <input type="text" placeholder="Search posts" class="w-full sm:w-[180px] border border-[#DDE8D5] bg-white rounded-lg py-2 pl-8 pr-3 text-xs outline-none focus:border-[#7A8450]">
                     </div>
-
 
                     <!-- FILTERS -->
                     <div class="flex flex-wrap gap-2">
-
-                        <button
-                            class="bg-[#2F5D50] text-white text-xs px-3 py-2 rounded-lg">
-
-                            All
-
-                        </button>
-
-
-                        <button
-                            class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1]">
-
-                            Published
-
-                        </button>
-
-
-                        <button
-                            class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1]">
-
-                            Draft
-
-                        </button>
-
-
-                        <button
-                            class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1]">
-
-                            Failed
-
-                        </button>
-
+                        <button class="bg-[#2F5D50] text-white text-xs px-3 py-2 rounded-lg">All</button>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1]">Published</button>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1]">Draft</button>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1]">Failed</button>
                     </div>
-
                 </div>
-
             </div>
-
-
 
             <!-- POSTS -->
             <div class="flex flex-col gap-2">
 
-
                 <!-- POST 1 -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up">
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up">
                     <i class="fa-brands fa-instagram text-[#2F5D50] text-base flex-shrink-0"></i>
-
-
                     <div class="flex-1 min-w-0">
-
-                        <p
-                            class="text-[13px] text-[#26352D] mb-0.5 truncate">
-
+                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate">
                             Something exciting is brewing! We're opening...
-
                         </p>
-
                         <p class="text-[11px] text-[#8B978A]">
                             12 Aug 2026
                         </p>
-
                     </div>
-
-
-                    <span
-                        class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0">
-
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0">
                         Published
-
                     </span>
-
-
-                    <div
-                        class="flex gap-3 text-[#8B978A] flex-shrink-0">
-
+                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0">
                         <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                     </div>
-
                 </div>
 
-
-
                 <!-- POST 2 -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-100">
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-100">
                     <i class="fa-brands fa-facebook text-[#2F5D50] text-base flex-shrink-0"></i>
-
-
                     <div class="flex-1 min-w-0">
-
-                        <p
-                            class="text-[13px] text-[#26352D] mb-0.5 truncate">
-
+                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate">
                             Our biggest sale of the year starts now...
-
                         </p>
-
                         <p class="text-[11px] text-[#8B978A]">
                             10 Aug 2026
                         </p>
-
                     </div>
-
-
-                    <span
-                        class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
-
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
                         Published
-
                     </span>
-
-
-                    <div
-                        class="flex gap-3 text-[#8B978A]">
-
+                    <div class="flex gap-3 text-[#8B978A]">
                         <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                     </div>
-
                 </div>
 
-
-
                 <!-- POST 3 -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-200">
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-200">
                     <i class="fa-brands fa-x-twitter text-[#2F5D50] text-base flex-shrink-0"></i>
-
-
                     <div class="flex-1 min-w-0">
-
-                        <p
-                            class="text-[13px] text-[#26352D] mb-0.5 truncate">
-
+                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate">
                             Check out our new summer menu...
-
                         </p>
-
                         <p class="text-[11px] text-[#8B978A]">
                             8 Aug 2026
                         </p>
-
                     </div>
-
-
-                    <span
-                        class="hidden sm:block bg-[#F7DADA] text-[#A33131] text-[11px] px-2.5 py-1 rounded-full">
-
+                    <span class="hidden sm:block bg-[#F7DADA] text-[#A33131] text-[11px] px-2.5 py-1 rounded-full">
                         Failed
-
                     </span>
-
-
                     <div class="flex gap-3 text-[#8B978A]">
-
                         <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                     </div>
-
                 </div>
 
-
-
                 <!-- POST 4 -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-300">
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-300">
                     <i class="fa-brands fa-linkedin text-[#2F5D50] text-base flex-shrink-0"></i>
-
-
                     <div class="flex-1 min-w-0">
-
-                        <p
-                            class="text-[13px] text-[#26352D] mb-0.5 truncate">
-
+                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate">
                             Behind the scenes at Hexovate...
-
                         </p>
-
                         <p class="text-[11px] text-[#8B978A]">
                             5 Aug 2026
                         </p>
-
                     </div>
-
-
-                    <span
-                        class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
-
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
                         Published
-
                     </span>
-
-
                     <div class="flex gap-3 text-[#8B978A]">
-
                         <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                     </div>
-
                 </div>
 
-
-
                 <!-- POST 5 -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-400">
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-400">
                     <i class="fa-brands fa-instagram text-[#2F5D50] text-base flex-shrink-0"></i>
-
-
                     <div class="flex-1 min-w-0">
-
-                        <p
-                            class="text-[13px] text-[#26352D] mb-0.5 truncate">
-
+                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate">
                             Meet the team behind your morning coffee...
-
                         </p>
-
                         <p class="text-[11px] text-[#8B978A]">
                             3 Aug 2026
                         </p>
-
                     </div>
-
-
-                    <span
-                        class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
-
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full">
                         Published
-
                     </span>
-
-
                     <div class="flex gap-3 text-[#8B978A]">
-
                         <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                     </div>
-
                 </div>
 
-
-
                 <!-- POST 6 -->
-                <div
-                    class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-500">
-
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-500">
                     <i class="fa-brands fa-facebook text-[#2F5D50] text-base flex-shrink-0"></i>
-
-
                     <div class="flex-1 min-w-0">
-
-                        <p
-                            class="text-[13px] text-[#26352D] mb-0.5 truncate">
-
+                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate">
                             Customer spotlight: five-star reviews all week...
-
                         </p>
-
                         <p class="text-[11px] text-[#8B978A]">
                             1 Aug 2026
                         </p>
-
                     </div>
-
-
-                    <span
-                        class="hidden sm:block bg-[#E8E5DC] text-[#5C6B58] text-[11px] px-2.5 py-1 rounded-full">
-
+                    <span class="hidden sm:block bg-[#E8E5DC] text-[#5C6B58] text-[11px] px-2.5 py-1 rounded-full">
                         Draft
-
                     </span>
-
-
                     <div class="flex gap-3 text-[#8B978A]">
-
                         <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                         <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50]"></i>
-
                     </div>
-
                 </div>
 
             </div>
 
-
-
             <!-- BOTTOM -->
-            <div
-                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-5 animate-fade-up delay-600">
-
-
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-5 animate-fade-up delay-600">
                 <p class="text-xs text-[#8B978A]">
                     Showing 6 of 34 posts
                 </p>
 
-
                 <!-- PAGINATION -->
                 <div class="flex gap-1.5">
-
-                    <button
-                        class="border border-[#DDE8D5] bg-white text-[#8B978A] text-xs px-3 py-1.5 rounded-md">
-
-                        Prev
-
-                    </button>
-
-
-                    <button
-                        class="bg-[#2F5D50] text-white text-xs px-3 py-1.5 rounded-md">
-
-                        1
-
-                    </button>
-
-
-                    <button
-                        class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md">
-
-                        2
-
-                    </button>
-
-
-                    <button
-                        class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md">
-
-                        3
-
-                    </button>
-
-
-                    <button
-                        class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md">
-
-                        Next
-
-                    </button>
-
+                    <button class="border border-[#DDE8D5] bg-white text-[#8B978A] text-xs px-3 py-1.5 rounded-md">Prev</button>
+                    <button class="bg-[#2F5D50] text-white text-xs px-3 py-1.5 rounded-md">1</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md">2</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md">3</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md">Next</button>
                 </div>
-
             </div>
-
 
         </main>
 
     </div>
+
+    <!-- SCRIPT LINK -->
+    <script src="script.js"></script>
 
 </body>
 </html>

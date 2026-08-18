@@ -23,8 +23,7 @@
 
 
         <!-- SIDEBAR -->
-        <aside
-            class="hidden md:flex w-[210px] min-h-screen bg-[#2F5D50] flex-col justify-between p-4 sticky top-0 animate-fade-down">
+        <aside id="sidebar" class="hidden md:flex fixed md:static inset-y-0 left-0 z-50 w-[220px] bg-[#2F5D50] min-h-screen flex-col justify-between p-4 sticky top-0 shadow-2xl md:shadow-none">
 
 
             <!-- LOGO + NAV -->
@@ -48,6 +47,9 @@
                     </span>
 
                 </a>
+                <button onclick="toggleSidebar()" class="md:hidden text-white/70 hover:text-white p-1 cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
 
 
                 <!-- NAVIGATION -->
@@ -149,7 +151,7 @@
                 <div class="min-w-0">
 
                     <p class="text-xs text-white font-semibold truncate">
-                        Yesra Khan
+                        Yesra
                     </p>
 
                     <p class="text-[11px] text-[#B9C7AE] truncate">
@@ -190,8 +192,7 @@
                 </a>
 
 
-                <button
-                    class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white">
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
 
                     <i class="fa-solid fa-bars"></i>
 
@@ -681,6 +682,7 @@
         </main>
 
     </div>
+    <script src="script.js"></script>
 
 
 </body>
