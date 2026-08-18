@@ -1,9 +1,12 @@
 //overview page mein sidebar hide kar ke usko mobile pr clickable banaya sab pages ke liya same code use hova
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
     if (sidebar) {
-        sidebar.classList.toggle('hidden');
-        sidebar.classList.toggle('flex');
+        sidebar.classList.toggle('-translate-x-full');
+    }
+    if (overlay) {
+        overlay.classList.toggle('hidden');
     }
 }
 ///login page mein log in button ko overview ke sath connect krna 
