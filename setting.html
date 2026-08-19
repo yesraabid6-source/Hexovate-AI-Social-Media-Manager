@@ -52,14 +52,15 @@
                 <!-- LOGO & CLOSE (X) BUTTON IN ONE ROW -->
                 <div class="flex items-center justify-between mb-6 px-1">
                     <!-- Logo -->
-                    <a href="overview.html" class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0 shadow-sm">
-                            <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
-                        </div>
-                        <span class="text-white font-bold text-sm">
-                            Hexovate
-                        </span>
-                    </a>
+                    <!-- DASHBOARD / SIDEBAR LOGO -->
+<a href="overview.html" class="flex items-center gap-2">
+    <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center text-white text-xs">
+        <i class="fa-solid fa-paper-plane -rotate-12"></i>
+    </div>
+    <span class="font-bold text-sm text-white">
+        Post<span class="text-emerald-300">Pilot</span>
+    </span>
+</a>
 
                     <!-- Close Button -->
                     <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
@@ -129,7 +130,7 @@
                         Yesra
                     </p>
                     <p id="sidebarEmail" class="text-[10px] text-[#B9C7AE] truncate">
-                        yesra@hexovate.com
+                        yesra@companyname.com
                     </p>
                 </div>
             </div>
@@ -212,7 +213,7 @@
                             <label class="block text-xs text-[#5C6B58] mb-1.5 font-bold">
                                 Email Address
                             </label>
-                            <input id="settingEmail" type="email" value="yesra@hexovate.com" class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-[#26352D] font-medium outline-none focus:bg-white focus:border-[#2F5D50] shadow-xs transition">
+                            <input id="settingEmail" type="email" value="yesra@company.com" class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-[#26352D] font-medium outline-none focus:bg-white focus:border-[#2F5D50] shadow-xs transition">
                         </div>
 
                         <!-- BUSINESS NAME -->
@@ -220,7 +221,7 @@
                             <label class="block text-xs text-[#5C6B58] mb-1.5 font-bold">
                                 Business / Brand Name
                             </label>
-                            <input id="settingBusinessName" type="text" value="Hexovate Cafe" class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-[#26352D] font-medium outline-none focus:bg-white focus:border-[#2F5D50] shadow-xs transition">
+                            <input id="settingBusinessName" type="text" value="Amberbrews Cafe" class="w-full border border-[#DDE8D5] bg-[#F5F8F1] rounded-lg px-3.5 py-2.5 text-xs sm:text-sm text-[#26352D] font-medium outline-none focus:bg-white focus:border-[#2F5D50] shadow-xs transition">
                         </div>
                     </div>
 
@@ -237,7 +238,7 @@
                             </div>
                             <div class="flex-1 min-w-0">
                                 <p class="text-xs sm:text-sm font-bold text-[#26352D]">Instagram</p>
-                                <p class="text-[10px] text-[#8B978A]">@hexovate.cafe</p>
+                                <p class="text-[10px] text-[#8B978A]">@amberbrews.cafe</p>
                             </div>
                             <button onclick="toggleConnect(this, 'Instagram')" class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-3 py-1 rounded-full font-bold cursor-pointer transition">
                                 Connected
@@ -251,7 +252,7 @@
                             </div>
                             <div class="flex-1 min-w-0">
                                 <p class="text-xs sm:text-sm font-bold text-[#26352D]">Facebook Page</p>
-                                <p class="text-[10px] text-[#8B978A]">Hexovate Cafe Official</p>
+                                <p class="text-[10px] text-[#8B978A]">Amberbrews Cafe Official</p>
                             </div>
                             <button onclick="toggleConnect(this, 'Facebook')" class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-3 py-1 rounded-full font-bold cursor-pointer transition">
                                 Connected
