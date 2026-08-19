@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hexovate - Analytics</title>
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- HORIZONTAL SCROLLBAR REMOVER -->
     <style>
@@ -16,13 +16,19 @@
             overflow-x: hidden;
             max-width: 100%;
         }
+        .smooth-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .smooth-card:hover {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 
-<body class="bg-[#F5F8F1] overflow-x-hidden w-full relative">
+<body class="bg-[#F5F8F1] text-[#26352D] overflow-x-hidden w-full relative antialiased">
 
-    <!-- 1. DARK OVERLAY (Mobile par peeche ka content blur/dark karne ke liye) -->
-    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
+    <!-- 1. DARK OVERLAY (Mobile Drawer Backdrop) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[2px] z-40 md:hidden transition-opacity"></div>
 
     <!-- 2. MAIN CONTAINER -->
     <div class="min-h-screen flex w-full overflow-x-hidden">
@@ -37,15 +43,15 @@
                 <div class="flex items-center justify-between mb-6 px-1">
                     <!-- Logo -->
                     <a href="overview.html" class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
                         </div>
-                        <span class="text-white font-semibold text-sm">
+                        <span class="text-white font-bold text-sm">
                             Hexovate
                         </span>
                     </a>
 
-                    <!-- Close Button (Logo ke theek samne right side) -->
+                    <!-- Close Button -->
                     <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
                         <i class="fa-solid fa-xmark text-base"></i>
                     </button>
@@ -55,43 +61,43 @@
                 <div class="flex flex-col gap-1">
 
                     <!-- OVERVIEW -->
-                    <a href="overview.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="overview.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
                     </a>
 
                     <!-- CREATE POST -->
-                    <a href="createpost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="createpost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
                     </a>
 
                     <!-- CONTENT CALENDAR -->
-                    <a href="contentcalender.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="contentcalender.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
                     </a>
 
                     <!-- SCHEDULED POSTS -->
-                    <a href="schedulepost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="schedulepost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-regular fa-clock w-4"></i>
                         Scheduled posts
                     </a>
 
                     <!-- CONTENT HISTORY -->
-                    <a href="contenthistory.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="contenthistory.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-clock-rotate-left w-4"></i>
                         Content history
                     </a>
 
                     <!-- ANALYTICS (Active) -->
-                    <a href="analytic.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium">
+                    <a href="analytic.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium shadow-xs">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
                     </a>
 
                     <!-- SETTINGS -->
-                    <a href="setting.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="setting.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
                     </a>
@@ -100,13 +106,16 @@
 
             </div>
 
-            <!-- USER -->
-            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-1">
-                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-[11px] font-semibold flex-shrink-0">
-                    YK
+            <!-- USER AVATAR IN SIDEBAR FOOTER -->
+            <div class="flex items-center gap-2.5 border-t border-white/10 pt-3 px-1">
+                <div class="relative flex-shrink-0">
+                    <img src="./images/avatar3.avif" 
+                         class="w-8 h-8 rounded-full object-cover ring-2 ring-[#7A8450]" 
+                         alt="Yesra Avatar">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 absolute -bottom-0.5 -right-0.5 ring-1 ring-[#2F5D50]"></span>
                 </div>
                 <div class="min-w-0">
-                    <p class="text-xs text-white font-semibold truncate">
+                    <p class="text-xs text-white font-bold truncate">
                         Yesra
                     </p>
                     <p class="text-[10px] text-[#B9C7AE] truncate">
@@ -117,162 +126,238 @@
 
         </aside>
 
-        <!-- 3. MAIN CONTENT ('min-w-0' add kiya gaya hai) -->
-        <main class="flex-1 min-w-0 px-4 py-6 sm:px-6 lg:px-9 page-animation">
+        <!-- 3. MAIN CONTENT -->
+        <main class="flex-1 min-w-0 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
 
             <!-- MOBILE HEADER -->
             <div class="md:hidden flex items-center justify-between mb-5">
                 <a href="overview.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center shadow-sm">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
                     </div>
-                    <span class="font-semibold text-[#26352D]">
+                    <span class="font-bold text-[#26352D]">
                         Hexovate
                     </span>
                 </a>
 
-                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition shadow-sm">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
             <!-- TOP HEADER -->
-            <div class="flex items-center justify-between gap-3 mb-5">
-                <h1 class="text-lg font-semibold text-[#26352D] animate-fade-down">
-                    Analytics
-                </h1>
+            <div class="flex items-center justify-between gap-3 mb-6">
+                <div>
+                    <h1 class="text-xl font-bold text-[#26352D] mb-0.5">
+                        Performance Analytics
+                    </h1>
+                    <p class="text-xs text-[#5C6B58]">Track reach, engagement, and top posts across social networks.</p>
+                </div>
 
-                <select id="dateRange" class="w-fit border border-[#DDE8D5] bg-white rounded-lg px-3 py-1.5 sm:py-2 text-xs text-[#5C6B58] outline-none cursor-pointer">
+                <select id="dateRange" class="w-fit border border-[#DDE8D5] bg-white rounded-lg px-3 py-2 text-xs font-semibold text-[#5C6B58] outline-none cursor-pointer shadow-xs focus:border-[#2F5D50]">
                     <option value="30">Last 30 days</option>
                     <option value="14">Last 14 days</option>
                     <option value="7">Last 7 days</option>
                 </select>
             </div>
 
-            <!-- STATS (Mobile par 2x2 Grid me clean view) -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 mb-5">
+            <!-- STATS (2x2 on mobile, 4 on desktop) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
                 <!-- LIKES -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:p-4 smooth-card card-animation delay-1">
-                    <p class="text-[10px] text-[#8B978A]">Likes</p>
-                    <h2 id="likees" class="text-lg sm:text-xl font-medium text-[#26352D] mt-1">3,240</h2>
-                    <p id="likesChange" class="text-[10px] text-[#7A8450] mt-1">8.1%</p>
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card shadow-xs">
+                    <div class="flex items-center justify-between mb-1">
+                        <p class="text-xs text-[#8B978A] font-semibold">Total Likes</p>
+                        <i class="fa-regular fa-heart text-rose-500 text-xs"></i>
+                    </div>
+                    <h2 id="likees" class="text-xl font-bold text-[#26352D]">3,240</h2>
+                    <p id="likesChange" class="text-[11px] text-[#2F5D50] font-semibold mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +8.1% vs last month
+                    </p>
                 </div>
 
                 <!-- COMMENTS -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:p-4 smooth-card card-animation delay-2">
-                    <p class="text-[10px] text-[#8B978A]">Comments</p>
-                    <h2 id="comments" class="text-lg sm:text-xl font-medium text-[#26352D] mt-1">412</h2>
-                    <p id="commentsChange" class="text-[10px] text-[#7A8450] mt-1">3.4%</p>
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card shadow-xs">
+                    <div class="flex items-center justify-between mb-1">
+                        <p class="text-xs text-[#8B978A] font-semibold">Comments</p>
+                        <i class="fa-regular fa-comment text-blue-500 text-xs"></i>
+                    </div>
+                    <h2 id="comments" class="text-xl font-bold text-[#26352D]">412</h2>
+                    <p id="commentsChange" class="text-[11px] text-[#2F5D50] font-semibold mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +3.4%
+                    </p>
                 </div>
 
                 <!-- REACH -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:p-4 smooth-card card-animation delay-3">
-                    <p class="text-[10px] text-[#8B978A]">Reach</p>
-                    <h2 id="reachs" class="text-lg sm:text-xl font-medium text-[#26352D] mt-1">18.4k</h2>
-                    <p id="reachChange" class="text-[10px] text-red-500 mt-1">1.2%</p>
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card shadow-xs">
+                    <div class="flex items-center justify-between mb-1">
+                        <p class="text-xs text-[#8B978A] font-semibold">Total Reach</p>
+                        <i class="fa-solid fa-eye text-[#2F5D50] text-xs"></i>
+                    </div>
+                    <h2 id="reachs" class="text-xl font-bold text-[#26352D]">18.4k</h2>
+                    <p id="reachChange" class="text-[11px] text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-trend-up text-[10px]"></i> +12.4%
+                    </p>
                 </div>
 
                 <!-- ENGAGEMENT -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:p-4 smooth-card card-animation delay-4">
-                    <p class="text-[10px] text-[#8B978A]">Engagement</p>
-                    <h2 id="engagement" class="text-lg sm:text-xl font-medium text-[#7A8450] mt-1">6.2%</h2>
-                    <p class="text-[10px] text-[#7A8450] mt-1">0.6pt</p>
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 smooth-card shadow-xs">
+                    <div class="flex items-center justify-between mb-1">
+                        <p class="text-xs text-[#8B978A] font-semibold">Engagement</p>
+                        <i class="fa-solid fa-chart-line text-[#2F5D50] text-xs"></i>
+                    </div>
+                    <h2 id="engagement" class="text-xl font-bold text-[#2F5D50]">6.2%</h2>
+                    <p class="text-[11px] text-[#2F5D50] font-semibold mt-1">High Performance</p>
                 </div>
             </div>
 
             <!-- CHARTS -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
                 <!-- ENGAGEMENT BY PLATFORM -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 sm:p-5 smooth-card card-animation delay-2">
-                    <h2 class="text-xs font-medium text-[#26352D] mb-5">Engagement by platform</h2>
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 sm:p-5 smooth-card shadow-xs">
+                    <div class="flex items-center justify-between mb-5">
+                        <h2 class="text-xs font-bold text-[#26352D]">Engagement by platform</h2>
+                        <span class="text-[10px] text-[#8B978A]">Average Rate</span>
+                    </div>
                     <!-- BARS -->
-                    <div class="h-[135px] flex items-end justify-center gap-6 sm:gap-10">
+                    <div class="h-[140px] flex items-end justify-center gap-6 sm:gap-10">
                         <!-- INSTAGRAM -->
                         <div class="h-full flex flex-col justify-end items-center">
-                            <div id="instagramBars" class="w-8 sm:w-10 bg-[#14665B] rounded-t-md" style="height: 85px;"></div>
-                            <p class="text-[9px] text-[#5C6B58] mt-2">Instagram</p>
+                            <div id="instagramBars" class="w-8 sm:w-10 bg-[#2F5D50] rounded-t-md transition-all duration-500" style="height: 85px;"></div>
+                            <p class="text-[10px] font-bold text-[#5C6B58] mt-2 flex items-center gap-1">
+                                <i class="fa-brands fa-instagram text-pink-600"></i> IG
+                            </p>
                         </div>
                         <!-- FACEBOOK -->
                         <div class="h-full flex flex-col justify-end items-center">
-                            <div id="facebookBars" class="w-8 sm:w-10 bg-[#7A8450] rounded-t-md" style="height: 60px;"></div>
-                            <p class="text-[9px] text-[#5C6B58] mt-2">Facebook</p>
+                            <div id="facebookBars" class="w-8 sm:w-10 bg-[#7A8450] rounded-t-md transition-all duration-500" style="height: 60px;"></div>
+                            <p class="text-[10px] font-bold text-[#5C6B58] mt-2 flex items-center gap-1">
+                                <i class="fa-brands fa-facebook text-blue-600"></i> FB
+                            </p>
                         </div>
                         <!-- LINKEDIN -->
                         <div class="h-full flex flex-col justify-end items-center">
-                            <div id="linkedinBars" class="w-8 sm:w-10 bg-[#AFC2A9] rounded-t-md" style="height: 38px;"></div>
-                            <p class="text-[9px] text-[#5C6B58] mt-2">LinkedIn</p>
+                            <div id="linkedinBars" class="w-8 sm:w-10 bg-[#AFC2A9] rounded-t-md transition-all duration-500" style="height: 38px;"></div>
+                            <p class="text-[10px] font-bold text-[#5C6B58] mt-2 flex items-center gap-1">
+                                <i class="fa-brands fa-linkedin text-blue-700"></i> LI
+                            </p>
                         </div>
                         <!-- X -->
                         <div class="h-full flex flex-col justify-end items-center">
-                            <div id="xBars" class="w-8 sm:w-10 bg-[#D9E5D4] rounded-t-md" style="height: 50px;"></div>
-                            <p class="text-[9px] text-[#5C6B58] mt-2">X</p>
+                            <div id="xBars" class="w-8 sm:w-10 bg-[#D9E5D4] rounded-t-md transition-all duration-500" style="height: 50px;"></div>
+                            <p class="text-[10px] font-bold text-[#5C6B58] mt-2 flex items-center gap-1">
+                                <i class="fa-brands fa-x-twitter text-slate-900"></i> X
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- REACH OVER TIME -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 sm:p-5 smooth-card card-animation delay-3">
-                    <h2 class="text-xs font-medium text-[#26352D] mb-4">Reach over time</h2>
+                <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 sm:p-5 smooth-card shadow-xs">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xs font-bold text-[#26352D]">Reach over time (Growth)</h2>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">+18.4k Total</span>
+                    </div>
                     <!-- GRAPH -->
-                    <div class="relative h-[135px]">
+                    <div class="relative h-[140px]">
                         <!-- AREA -->
                         <div id="reachArea" class="absolute bottom-5 left-[15%] w-[65%] h-[85px] bg-[#E8EFEC] clip-path-polygon"></div>
                         <!-- LINE -->
                         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 500 150" preserveAspectRatio="none">
-                            <polyline id="reachLine" class="graph-line" points="90,105 150,90 200,110 255,70 310,82 360,38 420,25" fill="none" stroke="#14665B" stroke-width="2.5" />
+                            <polyline id="reachLine" class="graph-line" points="90,105 150,90 200,110 255,70 310,82 360,38 420,25" fill="none" stroke="#2F5D50" stroke-width="3" />
                         </svg>
                         <!-- WEEKS -->
-                        <div class="absolute bottom-0 left-0 right-0 flex justify-between text-[9px] text-[#8B978A]">
-                            <span>Wk 1</span>
-                            <span>Wk 2</span>
-                            <span>Wk 3</span>
-                            <span>Wk 4</span>
+                        <div class="absolute bottom-0 left-0 right-0 flex justify-between text-[10px] font-medium text-[#8B978A]">
+                            <span>Week 1</span>
+                            <span>Week 2</span>
+                            <span>Week 3</span>
+                            <span>Week 4</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- TOP PERFORMING POSTS -->
-            <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 sm:p-5 overflow-x-auto smooth-card card-animation delay-4">
-                <h2 class="text-xs font-medium text-[#26352D] mb-3">Top performing posts</h2>
+            <!-- TOP PERFORMING POSTS TABLE (WITH VISUAL POST THUMBNAILS) -->
+            <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 sm:p-5 overflow-x-auto smooth-card shadow-xs">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xs font-bold text-[#26352D]">Top performing posts this month</h2>
+                    <span class="text-[11px] text-[#2F5D50] font-semibold">Ranked by Engagement</span>
+                </div>
 
-                <table class="w-full min-w-[500px]">
+                <table class="w-full min-w-[550px]">
                     <!-- HEADER -->
                     <thead>
-                        <tr class="border-b border-[#DDE8D5] text-[9px] text-[#8B978A] text-left">
-                            <th class="pb-2 font-normal">Post</th>
-                            <th class="pb-2 font-normal">Platform</th>
-                            <th class="pb-2 font-normal">Likes</th>
-                            <th class="pb-2 font-normal">Comments</th>
-                            <th class="pb-2 font-normal">Reach</th>
+                        <tr class="border-b border-[#DDE8D5] text-[10px] font-bold uppercase tracking-wider text-[#8B978A] text-left">
+                            <th class="pb-3">Post Content</th>
+                            <th class="pb-3">Platform</th>
+                            <th class="pb-3">Likes</th>
+                            <th class="pb-3">Comments</th>
+                            <th class="pb-3">Total Reach</th>
                         </tr>
                     </thead>
 
                     <!-- BODY -->
-                    <tbody>
-                        <tr class="border-b border-[#E8EEE4]">
-                            <td class="py-3 text-[10px] text-[#26352D]">New coffee shop opening this weekend</td>
-                            <td class="py-3 text-[10px] text-[#5C6B58]">Instagram</td>
-                            <td id="postLikes1" class="py-3 text-[10px] text-[#26352D]">612</td>
-                            <td id="postComments1" class="py-3 text-[10px] text-[#26352D]">84</td>
-                            <td id="postReach1" class="py-3 text-[10px] text-[#26352D]">4.1k</td>
+                    <tbody class="divide-y divide-[#E8EEE4]">
+                        
+                        <!-- ROW 1 (COFFEE OPENING) -->
+                        <tr class="hover:bg-[#F5F8F1]/60 transition">
+                            <td class="py-3 text-xs text-[#26352D] font-semibold">
+                                <div class="flex items-center gap-3">
+                                    <img src="./images/coffeepost.avif" 
+                                         class="w-10 h-10 rounded-lg object-cover border border-[#DDE8D5] shrink-0" 
+                                         alt="Coffee Post">
+                                    <span class="truncate max-w-[220px]">New coffee shop opening this weekend...</span>
+                                </div>
+                            </td>
+                            <td class="py-3 text-xs font-bold text-slate-700">
+                                <span class="inline-flex items-center gap-1.5 bg-pink-50 text-pink-700 px-2 py-0.5 rounded-md text-[11px]">
+                                    <i class="fa-brands fa-instagram"></i> Instagram
+                                </span>
+                            </td>
+                            <td id="postLikes1" class="py-3 text-xs font-bold text-[#26352D]">612</td>
+                            <td id="postComments1" class="py-3 text-xs font-medium text-slate-600">84</td>
+                            <td id="postReach1" class="py-3 text-xs font-bold text-[#2F5D50]">4.1k</td>
                         </tr>
 
-                        <tr class="border-b border-[#E8EEE4]">
-                            <td class="py-3 text-[10px] text-[#26352D]">Weekend sale — 20% off all items</td>
-                            <td class="py-3 text-[10px] text-[#5C6B58]">Facebook</td>
-                            <td id="postLikes2" class="py-3 text-[10px] text-[#26352D]">498</td>
-                            <td id="postComments2" class="py-3 text-[10px] text-[#26352D]">61</td>
-                            <td id="postReach2" class="py-3 text-[10px] text-[#26352D]">3.4k</td>
+                        <!-- ROW 2 (SALE) -->
+                        <tr class="hover:bg-[#F5F8F1]/60 transition">
+                            <td class="py-3 text-xs text-[#26352D] font-semibold">
+                                <div class="flex items-center gap-3">
+                                    <img src="./images/salethumbnail.avif" 
+                                         class="w-10 h-10 rounded-lg object-cover border border-[#DDE8D5] shrink-0" 
+                                         alt="Sale Post">
+                                    <span class="truncate max-w-[220px]">Weekend sale — 20% off all items...</span>
+                                </div>
+                            </td>
+                            <td class="py-3 text-xs font-bold text-slate-700">
+                                <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md text-[11px]">
+                                    <i class="fa-brands fa-facebook"></i> Facebook
+                                </span>
+                            </td>
+                            <td id="postLikes2" class="py-3 text-xs font-bold text-[#26352D]">498</td>
+                            <td id="postComments2" class="py-3 text-xs font-medium text-slate-600">61</td>
+                            <td id="postReach2" class="py-3 text-xs font-bold text-[#2F5D50]">3.4k</td>
                         </tr>
 
-                        <tr>
-                            <td class="py-3 text-[10px] text-[#26352D]">Behind the scenes at Hexovate</td>
-                            <td class="py-3 text-[10px] text-[#5C6B58]">LinkedIn</td>
-                            <td id="postLikes3" class="py-3 text-[10px] text-[#26352D]">355</td>
-                            <td id="postComments3" class="py-3 text-[10px] text-[#26352D]">47</td>
-                            <td id="postReach3" class="py-3 text-[10px] text-[#26352D]">2.9k</td>
+                        <!-- ROW 3 (TECH OFFICE) -->
+                        <tr class="hover:bg-[#F5F8F1]/60 transition">
+                            <td class="py-3 text-xs text-[#26352D] font-semibold">
+                                <div class="flex items-center gap-3">
+                                    <img src="./images/hiringthumbnail.jpg" 
+                                         class="w-10 h-10 rounded-lg object-cover border border-[#DDE8D5] shrink-0" 
+                                         alt="Hiring Post">
+                                    <span class="truncate max-w-[220px]">Behind the scenes at Hexovate...</span>
+                                </div>
+                            </td>
+                            <td class="py-3 text-xs font-bold text-slate-700">
+                                <span class="inline-flex items-center gap-1.5 bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md text-[11px]">
+                                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                                </span>
+                            </td>
+                            <td id="postLikes3" class="py-3 text-xs font-bold text-[#26352D]">355</td>
+                            <td id="postComments3" class="py-3 text-xs font-medium text-slate-600">47</td>
+                            <td id="postReach3" class="py-3 text-xs font-bold text-[#2F5D50]">2.9k</td>
                         </tr>
+
                     </tbody>
                 </table>
             </div>

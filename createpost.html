@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hexovate - Create Post</title>
-    
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./output.css">
 
     <!-- HORIZONTAL SCROLLBAR REMOVER -->
@@ -16,18 +16,33 @@
             overflow-x: hidden;
             max-width: 100%;
         }
+        .hexo-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .hexo-card:hover {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 
-<body class="bg-[#F5F8F1] text-[#26352D] overflow-x-hidden w-full relative">
+<body class="bg-[#F5F8F1] text-[#26352D] overflow-x-hidden w-full relative antialiased">
+     <div id="toast" class="fixed top-5 right-5 z-50 hidden bg-[#2F5D50] text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 border border-white/20">
+        <div class="w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center text-xs shrink-0">
+            <i class="fa-solid fa-check text-emerald-300"></i>
+        </div>
+        <div>
+            <p class="text-xs font-bold">Draft Saved!</p>
+            <p class="text-[11px] text-white/80">Your post has been saved in drafts.</p>
+        </div>
+    </div>
 
-    <!-- 1. DARK OVERLAY (Mobile par peeche ka form dark karne ke liye) -->
-    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
+    <!-- 1. DARK OVERLAY (Mobile Drawer Backdrop) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[2px] z-40 md:hidden transition-opacity"></div>
 
     <!-- 2. MAIN CONTAINER -->
     <div class="min-h-screen flex w-full overflow-x-hidden">
 
-        <!-- SIDEBAR (Setting page jaisa Ultra-Smooth Drawer) -->
+        <!-- SIDEBAR -->
         <aside id="sidebar" class="fixed md:sticky top-0 inset-y-0 left-0 z-50 w-[240px] md:w-[210px] bg-[#2F5D50] min-h-screen flex flex-col justify-between p-4 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex-shrink-0 shadow-2xl md:shadow-none">
 
             <!-- TOP SIDEBAR -->
@@ -37,15 +52,15 @@
                 <div class="flex items-center justify-between mb-6 px-1">
                     <!-- Logo -->
                     <a href="overview.html" class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
                         </div>
-                        <span class="text-white font-semibold text-sm">
+                        <span class="text-white font-bold text-sm">
                             Hexovate
                         </span>
                     </a>
 
-                    <!-- Close Button (Logo ke theek samne right side) -->
+                    <!-- Close Button -->
                     <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
                         <i class="fa-solid fa-xmark text-base"></i>
                     </button>
@@ -56,49 +71,49 @@
 
                     <!-- OVERVIEW -->
                     <a href="overview.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
                     </a>
 
                     <!-- CREATE POST (Active) -->
                     <a href="createpost.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium shadow-xs">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
                     </a>
 
                     <!-- CONTENT CALENDAR -->
                     <a href="contentcalender.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
                     </a>
 
                     <!-- SCHEDULED POSTS -->
                     <a href="schedulepost.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-regular fa-clock w-4"></i>
                         Scheduled posts
                     </a>
 
                     <!-- CONTENT HISTORY -->
                     <a href="contenthistory.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-clock-rotate-left w-4"></i>
                         Content history
                     </a>
 
                     <!-- ANALYTICS -->
                     <a href="analytic.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
                     </a>
 
                     <!-- SETTINGS -->
                     <a href="setting.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
                     </a>
@@ -107,13 +122,16 @@
 
             </div>
 
-            <!-- USER -->
-            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-1">
-                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-[11px] font-semibold flex-shrink-0">
-                    YK
+            <!-- USER AVATAR IN SIDEBAR FOOTER -->
+            <div class="flex items-center gap-2.5 border-t border-white/10 pt-3 px-1">
+                <div class="relative flex-shrink-0">
+                    <img src="./images/avatar3.avif" 
+                         class="w-8 h-8 rounded-full object-cover ring-2 ring-[#7A8450]" 
+                         alt="Yesra Avatar">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 absolute -bottom-0.5 -right-0.5 ring-1 ring-[#2F5D50]"></span>
                 </div>
                 <div class="min-w-0">
-                    <p class="text-xs text-white font-semibold truncate">
+                    <p class="text-xs text-white font-bold truncate">
                         Yesra
                     </p>
                     <p class="text-[10px] text-[#B9C7AE] truncate">
@@ -124,242 +142,296 @@
 
         </aside>
 
-        <!-- 3. MAIN CONTENT ('min-w-0' add kiya hai taaki form squeeze na ho) -->
+        <!-- 3. MAIN CONTENT -->
         <main class="flex-1 min-w-0 px-4 py-6 sm:px-7 lg:px-9 animate-fade-up">
 
             <!-- MOBILE HEADER -->
             <div class="md:hidden flex items-center justify-between mb-6">
                 <a href="overview.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center shadow-sm">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
                     </div>
-                    <span class="font-semibold text-[#26352D]">
+                    <span class="font-bold text-[#26352D]">
                         Hexovate
                     </span>
                 </a>
 
-                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition shadow-sm">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
             <!-- PAGE HEADING -->
-            <h2 class="text-lg font-semibold text-[#26352D] mb-6 animate-fade-down">
-                Create new post
-            </h2>
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-xl font-bold text-[#26352D] mb-0.5">
+                        Create new post
+                    </h2>
+                    <p class="text-xs text-[#5C6B58]">Craft, generate AI copy, and schedule your social media post.</p>
+                </div>
+            </div>
 
             <!-- MAIN GRID -->
-            <div class="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-7 animate-fade-up delay-200">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-7">
 
-                <!-- ================= LEFT SIDE ================= -->
+                <!-- ================= LEFT SIDE (FORM) ================= -->
                 <div>
 
                     <!-- PLATFORM -->
-                    <div class="mb-5 animate-fade-up delay-200">
-                        <p class="text-xs text-[#5C6B58] font-semibold mb-2">
-                            Platform
+                    <div class="mb-5">
+                        <p class="text-xs text-[#5C6B58] font-bold mb-2">
+                            Select Platform
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <!-- INSTAGRAM -->
-                            <button class="bg-[#2F5D50] text-white text-xs px-4 py-2 rounded-lg flex items-center gap-2 cursor-pointer transition">
-                                <i class="fa-brands fa-instagram"></i>
+                            <!-- INSTAGRAM (Active) -->
+                            <button class="bg-[#2F5D50] text-white text-xs px-3.5 py-2 rounded-lg flex items-center gap-2 font-medium shadow-xs cursor-pointer transition">
+                                <i class="fa-brands fa-instagram text-pink-400"></i>
                                 Instagram
                             </button>
 
                             <!-- FACEBOOK -->
-                            <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] cursor-pointer transition">
-                                <i class="fa-brands fa-facebook"></i>
+                            <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3.5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] font-medium cursor-pointer transition">
+                                <i class="fa-brands fa-facebook text-blue-600"></i>
                                 Facebook
                             </button>
 
                             <!-- LINKEDIN -->
-                            <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] cursor-pointer transition">
-                                <i class="fa-brands fa-linkedin"></i>
+                            <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3.5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] font-medium cursor-pointer transition">
+                                <i class="fa-brands fa-linkedin text-blue-700"></i>
                                 LinkedIn
                             </button>
 
                             <!-- X -->
-                            <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] cursor-pointer transition">
-                                <i class="fa-brands fa-x-twitter"></i>
+                            <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3.5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] font-medium cursor-pointer transition">
+                                <i class="fa-brands fa-x-twitter text-slate-900"></i>
                                 X
                             </button>
                         </div>
                     </div>
 
                     <!-- TOPIC -->
-                    <div class="mb-5 animate-fade-up delay-300">
-                        <label class="block text-xs text-[#5C6B58] font-semibold mb-2">
-                            Topic
+                    <div class="mb-5">
+                        <label class="block text-xs text-[#5C6B58] font-bold mb-2">
+                            Post Topic / Prompt
                         </label>
-                        <input type="text" value="New coffee shop opening" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450]">
+                        <input type="text" value="New coffee shop opening" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#2F5D50] focus:ring-1 focus:ring-[#2F5D50] shadow-xs">
                     </div>
 
                     <!-- TONE -->
-                    <div class="mb-5 animate-fade-up delay-400">
-                        <label class="block text-xs text-[#5C6B58] font-semibold mb-2">
-                            Tone
+                    <div class="mb-5">
+                        <label class="block text-xs text-[#5C6B58] font-bold mb-2">
+                            Tone of Voice
                         </label>
-                        <select class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[#7A8450] cursor-pointer">
+                        <select class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#2F5D50] cursor-pointer shadow-xs font-medium text-slate-700">
+                            <option>Friendly Engaging</option>
                             <option>Professional</option>
-                            <option>Friendly</option>
-                            <option>Playful</option>
+                            <option>Playful Fun</option>
+                            <option>Promotional / Sales</option>
                         </select>
                     </div>
 
                     <!-- CAPTION -->
-                    <div class="mb-2 animate-fade-up delay-500">
-                        <label class="block text-xs text-[#5C6B58] font-semibold mb-2">
-                            Caption
+                    <div class="mb-2">
+                        <label class="block text-xs text-[#5C6B58] font-bold mb-2">
+                            Generated Caption
                         </label>
-                        <textarea rows="5" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-3 text-sm leading-6 outline-none resize-none focus:border-[#7A8450] focus:ring-1 focus:ring-[#7A8450]">Something exciting is brewing! We're opening our doors this weekend. Come visit us and experience your new favorite coffee spot.</textarea>
-                        <p class="text-[11px] text-[#8B978A] text-right mt-1 mb-3">
-                            158 / 2,200 characters
+                        <textarea rows="4" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3.5 py-3 text-sm leading-relaxed outline-none resize-none focus:border-[#2F5D50] focus:ring-1 focus:ring-[#2F5D50] shadow-xs">Something exciting is brewing! ☕ We're officially opening our doors this weekend. Come visit us, grab your favorite brew, and experience 50% off all artisan coffees! 🎉✨</textarea>
+                        <p class="text-[11px] text-[#8B978A] text-right mt-1 mb-3 font-medium">
+                            172 / 2,200 characters
                         </p>
                     </div>
 
                     <!-- AI BUTTONS -->
-                    <div class="flex flex-wrap gap-2 mb-6 animate-fade-up delay-500">
-                        <button class="border border-[#7A8450] bg-white text-[#2F5D50] text-xs px-3 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] cursor-pointer transition">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <button class="bg-[#2F5D50] text-white text-xs px-3.5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#24493E] cursor-pointer transition shadow-xs font-semibold">
+                            <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
                             Generate with AI
                         </button>
-                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] cursor-pointer transition">
-                            <i class="fa-solid fa-rotate"></i>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3.5 py-2 rounded-lg flex items-center gap-2 hover:bg-[#F5F8F1] cursor-pointer transition font-medium">
+                            <i class="fa-solid fa-rotate text-xs"></i>
                             Regenerate
                         </button>
                     </div>
 
                     <!-- HASHTAGS -->
-                    <div class="mb-6 animate-fade-up delay-600">
-                        <p class="text-xs text-[#5C6B58] font-semibold mb-2">
-                            Hashtags
+                    <div class="mb-6">
+                        <p class="text-xs text-[#5C6B58] font-bold mb-2">
+                            Suggested Hashtags
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1.5 rounded-full font-medium">#CoffeeShop</span>
-                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1.5 rounded-full font-medium">#CoffeeLovers</span>
-                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1.5 rounded-full font-medium">#CafeLife</span>
-                            <button class="border border-dashed border-[#B9C7AE] text-[#7A8450] text-xs px-3 py-1.5 rounded-full cursor-pointer hover:bg-white transition">+ Add</button>
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1 rounded-full font-bold">#CoffeeShop</span>
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1 rounded-full font-bold">#CoffeeLovers</span>
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1 rounded-full font-bold">#CafeLife</span>
+                            <button class="border border-dashed border-[#B9C7AE] text-[#2F5D50] text-xs px-3 py-1 rounded-full cursor-pointer hover:bg-white transition font-medium">+ Add</button>
                         </div>
                     </div>
 
                     <!-- DATE + TIME -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 animate-fade-up delay-600">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                         <!-- DATE -->
                         <div>
-                            <label class="block text-xs text-[#5C6B58] font-semibold mb-2">
-                                Date
+                            <label class="block text-xs text-[#5C6B58] font-bold mb-2">
+                                Scheduled Date
                             </label>
                             <div class="relative">
                                 <i class="fa-regular fa-calendar absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-sm"></i>
-                                <input type="text" value="20 August 2026" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-2.5 pl-9 text-sm outline-none focus:border-[#7A8450]">
+                                <input type="text" value="20 August 2026" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-2.5 pl-9 text-sm outline-none focus:border-[#2F5D50] shadow-xs">
                             </div>
                         </div>
 
                         <!-- TIME -->
                         <div>
-                            <label class="block text-xs text-[#5C6B58] font-semibold mb-2">
-                                Time
+                            <label class="block text-xs text-[#5C6B58] font-bold mb-2">
+                                Scheduled Time
                             </label>
                             <div class="relative">
                                 <i class="fa-regular fa-clock absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-sm"></i>
-                                <input type="text" value="7:00 PM" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-2.5 pl-9 text-sm outline-none focus:border-[#7A8450]">
+                                <input type="text" value="7:00 PM" class="w-full bg-white border border-[#DDE8D5] rounded-lg px-3 py-2.5 pl-9 text-sm outline-none focus:border-[#2F5D50] shadow-xs">
                             </div>
                         </div>
                     </div>
 
                     <!-- ACTION BUTTONS -->
-                    <div class="flex flex-wrap gap-2 animate-fade-up delay-600">
-                        <button class="border border-[#7A8450] bg-white text-[#2F5D50] text-sm px-5 py-2.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">
-                            Save draft
+                                        <!-- ACTION BUTTONS WITH INTERACTIVE TOAST -->
+                    <div class="flex flex-wrap gap-2.5 items-center">
+                        <!-- SAVE DRAFT BUTTON -->
+                        <button id="saveDraftBtn"onclick="handleSaveDraft()"class="border border-[#DDE8D5] bg-white text-[#26352D] text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition shadow-xs flex items-center gap-2">
+                            <i class="fa-regular fa-bookmark text-xs"></i>
+                            <span>Save draft</span>
                         </button>
-                        <button class="bg-[#2F5D50] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#24493E] active:scale-95 transition cursor-pointer flex items-center gap-2">
+
+                        <!-- SCHEDULE POST BUTTON -->
+                        <a href="schedulepost.html" 
+                           class="bg-[#2F5D50] text-white text-sm font-bold px-6 py-2.5 rounded-lg hover:bg-[#24493E] active:scale-95 transition cursor-pointer flex items-center gap-2 shadow-sm">
                             <i class="fa-regular fa-calendar-check"></i>
                             Schedule post
-                        </button>
+                        </a>
                     </div>
-
                 </div>
 
-                <!-- ================= RIGHT SIDE ================= -->
-                <div class="animate-scale-in delay-300">
+                <!-- ================= RIGHT SIDE (VISUAL LIVE PREVIEW & MEDIA) ================= -->
+                <div>
 
-                    <!-- PREVIEW -->
-                    <p class="text-xs font-semibold text-[#5C6B58] mb-2">
-                        Preview
-                    </p>
+                    <!-- LIVE POST PREVIEW -->
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs font-bold text-[#5C6B58]">
+                            Live Post Preview
+                        </p>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
+                            Instagram Feed
+                        </span>
+                    </div>
 
-                    <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 mb-5 hexo-card">
-                        <!-- PROFILE -->
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-7 h-7 rounded-full bg-[#DDE8D5] flex items-center justify-center">
-                                <i class="fa-solid fa-user text-[#7A8450] text-xs"></i>
+                    <!-- INSTAGRAM PREVIEW CARD (WITH IMAGE) -->
+                    <div class="bg-white border border-[#DDE8D5] rounded-2xl p-4 mb-5 hexo-card shadow-sm">
+                        
+                        <!-- PROFILE HEADER -->
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2.5">
+                                <img src="./images/coffeelogo.avif" 
+                                     class="w-8 h-8 rounded-full object-cover ring-2 ring-[#2F5D50]/20" 
+                                     alt="Cafe Brand Avatar">
+                                <div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="text-xs font-bold text-[#26352D]">hexovate.cafe</span>
+                                        <i class="fa-solid fa-circle-check text-[10px] text-[#2F5D50]"></i>
+                                    </div>
+                                    <p class="text-[10px] text-[#8B978A]">Original Audio · Sponsored</p>
+                                </div>
                             </div>
-                            <span class="text-xs font-semibold">
-                                hexovate.cafe
+                            <i class="fa-solid fa-ellipsis text-xs text-[#8B978A]"></i>
+                        </div>
+
+                        <!-- MAIN POST IMAGE (HIGH QUALITY) -->
+                        <div class="relative rounded-xl overflow-hidden mb-3 aspect-4/3 group">
+                            <img src="./images/coffeepost.avif" 
+                                 class="w-full h-48 sm:h-52 object-cover transition-transform duration-300 group-hover:scale-102" 
+                                 alt="Coffee shop post image">
+                            <span class="absolute top-2 right-2 bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
+                                <i class="fa-solid fa-sparkles text-amber-300"></i> AI Enhanced
                             </span>
                         </div>
 
-                        <!-- IMAGE -->
-                        <div class="w-full h-40 bg-[#DDE8D5] rounded-lg flex items-center justify-center mb-3">
-                            <i class="fa-regular fa-image text-[#7A8450] text-2xl"></i>
+                        <!-- ACTION ICONS (INSTAGRAM STYLE) -->
+                        <div class="flex items-center justify-between mb-2.5 text-[#26352D]">
+                            <div class="flex items-center gap-3.5 text-base">
+                                <i class="fa-regular fa-heart hover:text-rose-500 cursor-pointer"></i>
+                                <i class="fa-regular fa-comment hover:text-[#2F5D50] cursor-pointer"></i>
+                                <i class="fa-regular fa-paper-plane hover:text-[#2F5D50] cursor-pointer"></i>
+                            </div>
+                            <i class="fa-regular fa-bookmark hover:text-[#2F5D50] cursor-pointer"></i>
                         </div>
 
-                        <!-- CAPTION -->
-                        <p class="text-xs leading-6">
-                            Something exciting is brewing! We're opening our doors this weekend
-                            <span class="text-[#2F5D50] font-medium">
-                                #CoffeeShop #CafeLife
-                            </span>
+                        <!-- CAPTION & HASHTAGS -->
+                        <p class="text-xs text-slate-800 leading-relaxed">
+                            <span class="font-bold text-[#26352D]">hexovate.cafe</span>
+                            Something exciting is brewing! ☕ We're opening our doors this weekend.
+                            <span class="text-[#2F5D50] font-semibold">#CoffeeShop #CafeLife</span>
                         </p>
                     </div>
 
-                    <!-- AI INSIGHTS -->
-                    <p class="text-xs font-semibold text-[#5C6B58] mb-2">
-                        AI insights
+                    <!-- AI INSIGHTS WIDGET -->
+                    <p class="text-xs font-bold text-[#5C6B58] mb-2">
+                        AI Performance Prediction
                     </p>
 
-                    <div class="bg-white border border-[#DDE8D5] rounded-xl p-4 mb-5 hexo-card">
+                    <div class="bg-white border border-[#DDE8D5] rounded-xl p-3.5 mb-5 hexo-card shadow-xs space-y-3">
                         <!-- BEST TIME -->
-                        <div class="flex items-start gap-3 mb-4">
-                            <div class="w-8 h-8 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                                <i class="fa-regular fa-clock text-[#2F5D50] text-sm"></i>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0 text-[#2F5D50]">
+                                <i class="fa-regular fa-clock text-xs"></i>
                             </div>
                             <div>
-                                <p class="text-xs font-semibold mb-1">
+                                <p class="text-xs font-bold text-[#26352D]">
                                     Best time to post
                                 </p>
-                                <p class="text-[11px] text-[#8B978A] leading-5">
-                                    7:00 PM sees 34% higher reach for this audience
+                                <p class="text-[11px] text-[#8B978A] leading-tight mt-0.5">
+                                    <strong>7:00 PM</strong> sees 34% higher reach for this niche.
                                 </p>
                             </div>
                         </div>
 
                         <!-- PREDICTED ENGAGEMENT -->
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-arrow-trend-up text-[#2F5D50] text-sm"></i>
+                            <div class="w-8 h-8 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0 text-[#2F5D50]">
+                                <i class="fa-solid fa-arrow-trend-up text-xs"></i>
                             </div>
                             <div>
-                                <p class="text-xs font-semibold mb-1">
-                                    Predicted engagement
+                                <p class="text-xs font-bold text-[#26352D]">
+                                    Predicted engagement: <span class="text-[#2F5D50]">6.8% High</span>
                                 </p>
-                                <p class="text-[11px] text-[#8B978A] leading-5">
-                                    Similar posts averaged 6.8% engagement
+                                <p class="text-[11px] text-[#8B978A] leading-tight mt-0.5">
+                                    Coffee &amp; cafe tags currently trending upward.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- ADD MEDIA -->
-                    <p class="text-xs font-semibold text-[#5C6B58] mb-2">
-                        Add media
+                    <!-- ADD MEDIA & AI SUGGESTIONS -->
+                    <p class="text-xs font-bold text-[#5C6B58] mb-2">
+                        Media &amp; AI Image Suggestions
                     </p>
 
-                    <label class="block bg-white border border-dashed border-[#B9C7AE] rounded-xl p-7 text-center cursor-pointer hover:bg-[#F5F8F1] hexo-card animate-float-slow transition">
-                        <i class="fa-solid fa-cloud-arrow-up text-[#7A8450] text-2xl"></i>
-                        <p class="text-xs text-[#5C6B58] mt-2">
-                            Drag an image here or
-                            <span class="text-[#2F5D50] font-semibold">
+                    <!-- AI SUGGESTED IMAGE THUMBNAILS -->
+                    <div class="grid grid-cols-3 gap-2 mb-3">
+                        <div class="relative rounded-lg overflow-hidden border-2 border-[#2F5D50] aspect-square cursor-pointer shadow-xs group">
+                            <img src="./images/coffeepost.avif" class="w-full h-full object-cover" alt="Preset 1">
+                            <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] px-1 rounded font-bold">Selected</span>
+                        </div>
+                        <div class="relative rounded-lg overflow-hidden border border-[#DDE8D5] aspect-square cursor-pointer hover:border-[#2F5D50] opacity-80 hover:opacity-100 transition">
+                            <img src="./images/coffeeimglogo.avif" class="w-full h-full object-cover" alt="Preset 2">
+                        </div>
+                        <div class="relative rounded-lg overflow-hidden border border-[#DDE8D5] aspect-square cursor-pointer hover:border-[#2F5D50] opacity-80 hover:opacity-100 transition">
+                            <img src="./images/coffeeimglogo2.avif" class="w-full h-full object-cover" alt="Preset 3">
+                        </div>
+                    </div>
+
+                    <!-- UPLOAD BOX -->
+                    <label class="block bg-white border border-dashed border-[#B9C7AE] rounded-xl p-5 text-center cursor-pointer hover:bg-[#F5F8F1] hexo-card transition shadow-xs">
+                        <i class="fa-solid fa-cloud-arrow-up text-[#2F5D50] text-xl"></i>
+                        <p class="text-xs text-[#5C6B58] mt-1.5 font-medium">
+                            Upload your own photo or
+                            <span class="text-[#2F5D50] font-bold underline">
                                 browse
                             </span>
                         </p>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hexovate - Content History</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
@@ -13,18 +15,24 @@
             overflow-x: hidden;
             max-width: 100%;
         }
+        .hexo-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .hexo-card:hover {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 
-<body class="bg-[#F5F8F1] overflow-x-hidden w-full relative">
+<body class="bg-[#F5F8F1] text-[#26352D] overflow-x-hidden w-full relative antialiased">
 
-    <!-- 1. DARK OVERLAY (Mobile par peeche ka content blur/dark karne ke liye) -->
-    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
+    <!-- 1. DARK OVERLAY (Mobile Drawer Backdrop) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[2px] z-40 md:hidden transition-opacity"></div>
 
     <!-- 2. MAIN CONTAINER -->
     <div class="min-h-screen flex w-full overflow-x-hidden">
 
-        <!-- SIDEBAR (Setting page jaisa Ultra-Smooth Drawer) -->
+        <!-- SIDEBAR -->
         <aside id="sidebar" class="fixed md:sticky top-0 inset-y-0 left-0 z-50 w-[240px] md:w-[210px] bg-[#2F5D50] min-h-screen flex flex-col justify-between p-4 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex-shrink-0 shadow-2xl md:shadow-none">
 
             <!-- TOP SIDEBAR -->
@@ -34,15 +42,15 @@
                 <div class="flex items-center justify-between mb-6 px-1">
                     <!-- Logo -->
                     <a href="overview.html" class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
                         </div>
-                        <span class="text-white font-semibold text-sm">
+                        <span class="text-white font-bold text-sm">
                             Hexovate
                         </span>
                     </a>
 
-                    <!-- Close Button (Logo ke theek samne right side) -->
+                    <!-- Close Button -->
                     <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
                         <i class="fa-solid fa-xmark text-base"></i>
                     </button>
@@ -52,43 +60,43 @@
                 <div class="flex flex-col gap-1">
 
                     <!-- OVERVIEW -->
-                    <a href="overview.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="overview.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
                     </a>
 
                     <!-- CREATE POST -->
-                    <a href="createpost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="createpost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
                     </a>
 
                     <!-- CONTENT CALENDAR -->
-                    <a href="contentcalender.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="contentcalender.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
                     </a>
 
                     <!-- SCHEDULED POSTS -->
-                    <a href="schedulepost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="schedulepost.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-regular fa-clock w-4"></i>
                         Scheduled posts
                     </a>
 
                     <!-- CONTENT HISTORY (Active) -->
-                    <a href="contenthistory.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium">
+                    <a href="contenthistory.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium shadow-xs">
                         <i class="fa-solid fa-clock-rotate-left w-4"></i>
                         Content history
                     </a>
 
                     <!-- ANALYTICS -->
-                    <a href="analytic.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="analytic.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
                     </a>
 
                     <!-- SETTINGS -->
-                    <a href="setting.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                    <a href="setting.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
                     </a>
@@ -97,13 +105,16 @@
 
             </div>
 
-            <!-- USER -->
-            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-1">
-                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-[11px] font-semibold flex-shrink-0">
-                    YK
+            <!-- USER AVATAR IN SIDEBAR FOOTER -->
+            <div class="flex items-center gap-2.5 border-t border-white/10 pt-3 px-1">
+                <div class="relative flex-shrink-0">
+                    <img src="./images/avatar3.avif" 
+                         class="w-8 h-8 rounded-full object-cover ring-2 ring-[#7A8450]" 
+                         alt="Yesra Avatar">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 absolute -bottom-0.5 -right-0.5 ring-1 ring-[#2F5D50]"></span>
                 </div>
                 <div class="min-w-0">
-                    <p class="text-xs text-white font-semibold truncate">
+                    <p class="text-xs text-white font-bold truncate">
                         Yesra
                     </p>
                     <p class="text-[10px] text-[#B9C7AE] truncate">
@@ -114,194 +125,287 @@
 
         </aside>
 
-        <!-- 3. MAIN CONTENT ('min-w-0' add kiya gaya hai) -->
+        <!-- 3. MAIN CONTENT -->
         <main class="flex-1 min-w-0 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
 
             <!-- MOBILE HEADER -->
             <div class="md:hidden flex items-center justify-between mb-6 animate-fade-down">
                 <a href="overview.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center shadow-sm">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
                     </div>
-                    <span class="font-semibold text-[#26352D]">
+                    <span class="font-bold text-[#26352D]">
                         Hexovate
                     </span>
                 </a>
 
-                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition shadow-sm">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
             <!-- TOP SECTION -->
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-5 animate-fade-down">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6 animate-fade-down">
                 <!-- TITLE -->
-                <h2 class="text-lg font-semibold text-[#26352D]">
-                    Content history
-                </h2>
+                <div>
+                    <h2 class="text-xl font-bold text-[#26352D] mb-0.5">
+                        Content history
+                    </h2>
+                    <p class="text-xs text-[#5C6B58]">Archive of all generated, published, and drafted posts.</p>
+                </div>
 
                 <!-- SEARCH + FILTERS -->
                 <div class="flex flex-col sm:flex-row gap-3">
                     <!-- SEARCH -->
                     <div class="relative">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-[#8B978A] text-xs"></i>
-                        <input type="text" placeholder="Search posts" class="w-full sm:w-[180px] border border-[#DDE8D5] bg-white rounded-lg py-2 pl-8 pr-3 text-xs outline-none focus:border-[#7A8450]">
+                        <input type="text" placeholder="Search posts..." class="w-full sm:w-[200px] border border-[#DDE8D5] bg-white rounded-lg py-2 pl-8 pr-3 text-xs outline-none focus:border-[#2F5D50] shadow-xs">
                     </div>
 
                     <!-- FILTERS -->
-                    <div class="flex flex-wrap gap-2">
-                        <button class="bg-[#2F5D50] text-white text-xs px-3 py-2 rounded-lg cursor-pointer">All</button>
-                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">Published</button>
-                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">Draft</button>
-                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">Failed</button>
+                    <div class="flex flex-wrap gap-1.5">
+                        <button class="bg-[#2F5D50] text-white text-xs px-3.5 py-2 rounded-lg font-bold shadow-xs cursor-pointer">All</button>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition font-medium">Published</button>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition font-medium">Draft</button>
+                        <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-2 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition font-medium">Failed</button>
                     </div>
                 </div>
             </div>
 
-            <!-- POSTS LIST -->
-            <div class="flex flex-col gap-2">
+            <!-- POSTS LIST (WITH VISUAL POST THUMBNAILS) -->
+            <div class="flex flex-col gap-2.5">
 
-                <!-- POST 1 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up">
-                    <i class="fa-brands fa-instagram text-[#2F5D50] text-base flex-shrink-0"></i>
+                <!-- POST 1: INSTAGRAM (PUBLISHED) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs animate-fade-up">
+                    <div class="relative shrink-0">
+                        <img src="./images/coffeepost.avif" 
+                             class="w-11 h-11 rounded-lg object-cover border border-[#DDE8D5]" alt="Coffee Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-pink-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate font-medium">
-                            Something exciting is brewing! We're opening...
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Something exciting is brewing! We're opening our doors this weekend ☕
                         </p>
                         <p class="text-[11px] text-[#8B978A]">
-                            12 Aug 2026
+                            Instagram · 12 Aug 2026, 6:00 PM
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-bold">
                         Published
                     </span>
-                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0 items-center">
-                        <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
+
+                    <div class="flex gap-2.5 text-[#8B978A] flex-shrink-0 items-center">
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="View">
+                            <i class="fa-regular fa-eye text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Copy">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Regenerate">
+                            <i class="fa-solid fa-rotate text-xs"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- POST 2 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-100">
-                    <i class="fa-brands fa-facebook text-[#2F5D50] text-base flex-shrink-0"></i>
+                <!-- POST 2: FACEBOOK (PUBLISHED) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs animate-fade-up delay-100">
+                    <div class="relative shrink-0">
+                        <img src="./images/salethumbnail.avif" 
+                             class="w-11 h-11 rounded-lg object-cover border border-[#DDE8D5]" alt="Sale Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                    </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate font-medium">
-                            Our biggest sale of the year starts now...
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Our biggest sale of the year starts now — 20% off all artisan brews 🎉
                         </p>
                         <p class="text-[11px] text-[#8B978A]">
-                            10 Aug 2026
+                            Facebook · 10 Aug 2026, 2:00 PM
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-bold">
                         Published
                     </span>
-                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0 items-center">
-                        <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
+
+                    <div class="flex gap-2.5 text-[#8B978A] flex-shrink-0 items-center">
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="View">
+                            <i class="fa-regular fa-eye text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Copy">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Regenerate">
+                            <i class="fa-solid fa-rotate text-xs"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- POST 3 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-200">
-                    <i class="fa-brands fa-x-twitter text-[#2F5D50] text-base flex-shrink-0"></i>
+                <!-- POST 3: X (FAILED) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3 sm:px-4 flex items-center gap-3.5 hover:border-rose-400 shadow-xs animate-fade-up delay-200">
+                    <div class="relative shrink-0">
+                        <img src="./images/coffeelogo.avif" 
+                             class="w-11 h-11 rounded-lg object-cover border border-[#DDE8D5]" alt="Summer Drinks Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </span>
+                    </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate font-medium">
-                            Check out our new summer menu...
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Check out our new summer iced coffee menu 🥤
                         </p>
-                        <p class="text-[11px] text-[#8B978A]">
-                            8 Aug 2026
+                        <p class="text-[11px] text-rose-500 font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation text-[10px]"></i> API Rate limit exceeded
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#F7DADA] text-[#A33131] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:block bg-[#F7DADA] text-[#A33131] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-bold">
                         Failed
                     </span>
-                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0 items-center">
-                        <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
+
+                    <div class="flex gap-2.5 text-[#8B978A] flex-shrink-0 items-center">
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="View">
+                            <i class="fa-regular fa-eye text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Copy">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-rose-50 hover:text-rose-600 flex items-center justify-center transition cursor-pointer" title="Retry">
+                            <i class="fa-solid fa-rotate text-xs"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- POST 4 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-300">
-                    <i class="fa-brands fa-linkedin text-[#2F5D50] text-base flex-shrink-0"></i>
+                <!-- POST 4: LINKEDIN (PUBLISHED) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs animate-fade-up delay-300">
+                    <div class="relative shrink-0">
+                        <img src="./images/hiringthumbnail.jpg" 
+                             class="w-11 h-11 rounded-lg object-cover border border-[#DDE8D5]" alt="Tech Office Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-blue-700 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </span>
+                    </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate font-medium">
-                            Behind the scenes at Hexovate...
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Behind the scenes at Hexovate: how our AI analyzes engagement trends 🚀
                         </p>
                         <p class="text-[11px] text-[#8B978A]">
-                            5 Aug 2026
+                            LinkedIn · 5 Aug 2026, 10:00 AM
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-bold">
                         Published
                     </span>
-                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0 items-center">
-                        <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
+
+                    <div class="flex gap-2.5 text-[#8B978A] flex-shrink-0 items-center">
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="View">
+                            <i class="fa-regular fa-eye text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Copy">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Regenerate">
+                            <i class="fa-solid fa-rotate text-xs"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- POST 5 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-400">
-                    <i class="fa-brands fa-instagram text-[#2F5D50] text-base flex-shrink-0"></i>
+                <!-- POST 5: INSTAGRAM (PUBLISHED) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs animate-fade-up delay-400">
+                    <div class="relative shrink-0">
+                        <img src="./images/coffeeimglogo.avif" 
+                             class="w-11 h-11 rounded-lg object-cover border border-[#DDE8D5]" alt="Latte Art Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-pink-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate font-medium">
-                            Meet the team behind your morning coffee...
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Meet the team behind your morning coffee &amp; artisanal lattes ☕❤️
                         </p>
                         <p class="text-[11px] text-[#8B978A]">
-                            3 Aug 2026
+                            Instagram · 3 Aug 2026, 11:00 AM
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:block bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-bold">
                         Published
                     </span>
-                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0 items-center">
-                        <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
+
+                    <div class="flex gap-2.5 text-[#8B978A] flex-shrink-0 items-center">
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="View">
+                            <i class="fa-regular fa-eye text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Copy">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Regenerate">
+                            <i class="fa-solid fa-rotate text-xs"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- POST 6 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 animate-fade-up delay-500">
-                    <i class="fa-brands fa-facebook text-[#2F5D50] text-base flex-shrink-0"></i>
+                <!-- POST 6: FACEBOOK (DRAFT) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs animate-fade-up delay-500">
+                    <div class="relative shrink-0">
+                        <img src="./images/avatar3.avif" 
+                             class="w-11 h-11 rounded-lg object-cover border border-[#DDE8D5]" alt="Customer Spotlight Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                    </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] mb-0.5 truncate font-medium">
-                            Customer spotlight: five-star reviews all week...
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Customer spotlight: five-star reviews all week from our community ⭐⭐⭐⭐⭐
                         </p>
                         <p class="text-[11px] text-[#8B978A]">
-                            1 Aug 2026
+                            Facebook · 1 Aug 2026 (Draft)
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#E8E5DC] text-[#5C6B58] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:block bg-[#E8E5DC] text-[#5C6B58] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-bold">
                         Draft
                     </span>
-                    <div class="flex gap-3 text-[#8B978A] flex-shrink-0 items-center">
-                        <i class="fa-regular fa-eye text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-regular fa-copy text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
-                        <i class="fa-solid fa-rotate text-sm cursor-pointer hover:text-[#2F5D50] transition"></i>
+
+                    <div class="flex gap-2.5 text-[#8B978A] flex-shrink-0 items-center">
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="View">
+                            <i class="fa-regular fa-eye text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Copy">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                        </button>
+                        <button class="w-7 h-7 rounded-lg hover:bg-[#F5F8F1] hover:text-[#2F5D50] flex items-center justify-center transition cursor-pointer" title="Edit">
+                            <i class="fa-solid fa-pen text-xs"></i>
+                        </button>
                     </div>
                 </div>
 
             </div>
 
             <!-- BOTTOM PAGINATION -->
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-5 animate-fade-up delay-600">
-                <p class="text-xs text-[#8B978A]">
-                    Showing 6 of 34 posts
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 animate-fade-up delay-600">
+                <p class="text-xs text-[#8B978A] font-medium">
+                    Showing <strong>6</strong> of <strong>34</strong> posts
                 </p>
 
                 <!-- PAGINATION BUTTONS -->
                 <div class="flex gap-1.5">
-                    <button class="border border-[#DDE8D5] bg-white text-[#8B978A] text-xs px-3 py-1.5 rounded-md cursor-pointer hover:bg-[#F5F8F1] transition">Prev</button>
-                    <button class="bg-[#2F5D50] text-white text-xs px-3 py-1.5 rounded-md cursor-pointer">1</button>
-                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md cursor-pointer hover:bg-[#F5F8F1] transition">2</button>
-                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md cursor-pointer hover:bg-[#F5F8F1] transition">3</button>
-                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-md cursor-pointer hover:bg-[#F5F8F1] transition">Next</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#8B978A] text-xs px-3 py-1.5 rounded-lg cursor-pointer hover:bg-[#F5F8F1] transition font-medium">Prev</button>
+                    <button class="bg-[#2F5D50] text-white text-xs px-3.5 py-1.5 rounded-lg font-bold shadow-xs cursor-pointer">1</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition font-medium">2</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition font-medium">3</button>
+                    <button class="border border-[#DDE8D5] bg-white text-[#5C6B58] text-xs px-3 py-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition font-medium">Next</button>
                 </div>
             </div>
 

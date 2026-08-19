@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hexovate - AI Social Media Manager</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body class="bg-[#F5F8F1] text-[#26352D]">
 
@@ -13,386 +15,380 @@
     <div class="w-full">
 
         <!-- NAVBAR -->
-        <nav class="sticky top-0 z-10 w-full bg-white border-b border-[#DDE8D5] animate-fade-down">
-
+        <nav class="sticky top-0 z-20 w-full bg-white/90 backdrop-blur-md border-b border-[#DDE8D5] animate-fade-down">
             <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
 
                 <!-- LOGO -->
-                <a href="home.html" class="flex items-center gap-2">
-
-                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
-                        <i class="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-base"></i>
                     </div>
-
-                    <span class="font-semibold text-[17px]">
+                    <span class="font-bold text-[17px] text-[#26352D]">
                         Hexovate
                     </span>
-
                 </a>
 
                 <!-- NAV LINKS -->
-                <div class="hidden md:flex items-center gap-7 text-sm text-[#4A574A]">
-                    <a href="#features" class="hover:text-[#2F5D50]">
-                        Features
-                    </a>
-
-                    <a href="#how-it-works" class="hover:text-[#2F5D50]">
-                        How it works
-                    </a>
-
-                    <a href="#pricing" class="hover:text-[#2F5D50]">
-                        Pricing
-                    </a>
+                <div class="hidden md:flex items-center gap-7 text-sm font-medium text-[#4A574A]">
+                    <a href="#features" class="hover:text-[#2F5D50] transition-colors">Features</a>
+                    <a href="#how-it-works" class="hover:text-[#2F5D50] transition-colors">How it works</a>
+                    <a href="#pricing" class="hover:text-[#2F5D50] transition-colors">Pricing</a>
                 </div>
 
                 <!-- BUTTONS -->
                 <div class="flex items-center gap-3">
-
-                    <a href="login.html"
-                       class="text-sm text-[#2F5D50] hover:text-[#26352D]">
+                    <a href="login.html" class="text-sm font-medium text-[#2F5D50] hover:text-[#26352D] px-2 py-1">
                         Log in
                     </a>
-
-                    <a href="signup.html"
-                       class="bg-[#2F5D50] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#24493E]">
+                    <a href="signup.html" class="bg-[#2F5D50] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#24493E] transition shadow-sm">
                         Start free
                     </a>
-
                 </div>
 
             </div>
-
         </nav>
 
 
         <!-- HERO SECTION -->
-        <section class="max-w-6xl mx-auto px-5 py-14 md:py-20">
-
+        <section class="max-w-6xl mx-auto px-5 py-12 md:py-18">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-center">
 
                 <!-- LEFT SIDE -->
                 <div>
-
                     <!-- SMALL BADGE -->
-                    <div class="inline-flex items-center gap-2 bg-[#DDE8D5] text-[#2F5D50] text-xs px-3 py-1.5 rounded-full mb-5  animate-fade-up">
-
-                        <i class="fa-solid fa-bolt text-sm"></i>
-
+                    <div class="inline-flex items-center gap-2 bg-[#DDE8D5] text-[#2F5D50] text-xs font-semibold px-3 py-1.5 rounded-full mb-5 animate-fade-up">
+                        <i class="fa-solid fa-bolt text-xs"></i>
                         <span>Built for growing teams</span>
-
                     </div>
 
-
                     <!-- HEADING -->
-                    <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-semibold leading-tight mb-4 animate-fade-up delay-100">
+                    <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold leading-tight mb-4 animate-fade-up delay-100 text-[#26352D]">
                         Your social media, planned and published by AI
                     </h1>
-
 
                     <!-- PARAGRAPH -->
                     <p class="text-sm sm:text-[15px] text-[#5C6B58] leading-7 max-w-md mb-7 animate-fade-up delay-200">
                         Generate on-brand captions and hashtags, schedule across every platform, and track performance — all from one calm, focused dashboard.
                     </p>
 
-
                     <!-- BUTTONS -->
-                    <div class="flex flex-col sm:flex-row gap-3 mb-5 animate-fade-up delay-300">
-
-                        <a href="signup.html"
-                           class="bg-[#2F5D50] text-white px-6 py-3 rounded-lg text-sm font-semibold text-center hover:bg-[#24493E]">
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6 animate-fade-up delay-300">
+                        <a href="signup.html" class="bg-[#2F5D50] text-white px-6 py-3 rounded-lg text-sm font-semibold text-center hover:bg-[#24493E] shadow-sm transition">
                             Get started free
                         </a>
-
-                        <button class="border border-[#B9C7AE] bg-white text-[#2F5D50] px-6 py-3 rounded-lg text-sm flex items-center justify-center gap-2 hover:bg-[#F5F8F1]">
-
-                            <i class="fa-solid fa-play text-sm"></i>
-
+                        <button class="border border-[#B9C7AE] bg-white text-[#2F5D50] px-6 py-3 rounded-lg text-sm font-medium flex items-center justify-center gap-2 hover:bg-[#F5F8F1] transition">
+                            <i class="fa-solid fa-circle-play text-sm"></i>
                             Watch demo
-
                         </button>
-
                     </div>
 
-
-                    <!-- TRIAL TEXT -->
-                    <p class="text-xs text-[#8B978A] mb-6">
-                        No credit card required · Free 14-day trial
-                    </p>
-
+                    <!-- SOCIAL PROOF WITH AVATAR IMAGES -->
+                    <div class="flex items-center gap-3 mb-8 animate-fade-up delay-300">
+                        <div class="flex -space-x-2 overflow-hidden">
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="./images/avatar1.avif" alt="User 1" />
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="./images/avatar2.avif" alt="User 2" />
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="./images/avatar3.avif" alt="User 3" />
+                            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="./images/avatar4.avif" alt="User 4" />
+                        </div>
+                        <div class="text-xs text-[#5C6B58]">
+                            <div class="flex text-amber-400 text-[10px] gap-0.5 mb-0.5">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span>Loved by <strong>2,400+</strong> marketers</span>
+                        </div>
+                    </div>
 
                     <!-- STATS -->
-                    <div class="flex flex-wrap gap-7 animate-fade-up delay-400">
-
+                    <div class="flex flex-wrap gap-7 pt-4 border-t border-[#DDE8D5]/80 animate-fade-up delay-400">
                         <div>
-                            <p id="teams" class="text-xl font-semibold">2,400+</p>
-                            <p class="text-[11px] text-[#8B978A]">
-                                teams onboard
-                            </p>
+                            <p id="teams" class="text-xl font-bold text-[#26352D]">2,400+</p>
+                            <p class="text-[11px] text-[#8B978A]">teams onboard</p>
                         </div>
-
                         <div>
-                            <p id="posts" class="text-xl font-semibold">180k+</p>
-                            <p class="text-[11px] text-[#8B978A]">
-                                posts scheduled
-                            </p>
+                            <p id="posts" class="text-xl font-bold text-[#26352D]">180k+</p>
+                            <p class="text-[11px] text-[#8B978A]">posts scheduled</p>
                         </div>
-
                         <div>
-                            <p  id="rating" class="text-xl font-semibold">4.8/5</p>
-                            <p class="text-[11px] text-[#8B978A]">
-                                average rating
-                            </p>
+                            <p id="rating" class="text-xl font-bold text-[#26352D]">4.8/5</p>
+                            <p class="text-[11px] text-[#8B978A]">average rating</p>
                         </div>
-
                     </div>
-
                 </div>
 
 
-                <!-- RIGHT SIDE -->
-                <div class="bg-white border border-[#DDE8D5] rounded-2xl p-4 shadow-sm animate-scale-in delay-200">
+                <!-- RIGHT SIDE (VISUAL POST PREVIEW CARD WITH IMAGE) -->
+                <div class="bg-white border border-[#DDE8D5] rounded-2xl p-4 shadow-lg shadow-[#2F5D50]/5 animate-scale-in delay-200">
 
-                    <!-- TOP DOTS -->
-                    <div class="flex gap-1.5 mb-3">
-
-                        <div class="w-2 h-2 rounded-full bg-[#DDE8D5]"></div>
-                        <div class="w-2 h-2 rounded-full bg-[#DDE8D5]"></div>
-                        <div class="w-2 h-2 rounded-full bg-[#DDE8D5]"></div>
-
+                    <!-- TOP WINDOW DOTS & STATUS -->
+                    <div class="flex items-center justify-between mb-3 pb-2 border-b border-[#DDE8D5]/60">
+                        <div class="flex gap-1.5">
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#E57373]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#FFD54F]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#81C784]"></div>
+                        </div>
+                        <span class="text-[10px] font-semibold text-[#2F5D50] bg-[#DDE8D5] px-2 py-0.5 rounded-full flex items-center gap-1">
+                            <i class="fa-solid fa-sparkles text-[9px]"></i> AI Generated Mockup
+                        </span>
                     </div>
 
+                    <!-- SOCIAL POST CONTAINER -->
+                    <div class="bg-[#F5F8F1] rounded-xl p-3 sm:p-4 border border-[#DDE8D5]">
 
-                    <!-- DASHBOARD -->
-                    <div class="bg-[#F5F8F1] rounded-xl p-4">
+                        <!-- POST HEADER (PROFILE) -->
+                        <div class="flex items-center justify-between mb-2.5">
+                            <div class="flex items-center gap-2.5">
+                                <img src="./images/coffeelogo.avif" 
+                                     alt="Cafe Brand Avatar" 
+                                     class="w-9 h-9 rounded-full object-cover ring-2 ring-[#2F5D50]/20">
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <p class="text-xs font-bold text-[#26352D]">Roast &amp; Co. Coffee</p>
+                                        <i class="fa-solid fa-circle-check text-[11px] text-[#2F5D50]"></i>
+                                    </div>
+                                    <p class="text-[10px] text-[#8B978A]">Instagram Post · Scheduled for Today, 6:00 PM</p>
+                                </div>
+                            </div>
+                            <span class="text-[#8B978A] hover:text-[#26352D] cursor-pointer text-xs">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </span>
+                        </div>
 
-                        <p class="text-xs text-[#8B978A] mb-2">
-                            Caption
-                        </p>
+                        <!-- POST IMAGE (HIGH QUALITY VISUAL HERO) -->
+                        <div class="relative rounded-lg overflow-hidden mb-3 group">
+                            <img src="./images/coffeepost.avif" 
+                                 alt="Coffee shop opening post" 
+                                 class="w-full h-44 sm:h-52 object-cover transition-transform duration-300 group-hover:scale-105">
+                            
+                            <!-- Floating Tag -->
+                            <div class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-md flex items-center gap-1.5">
+                                <i class="fa-brands fa-instagram text-pink-400"></i>
+                                <span>Preview</span>
+                            </div>
+                        </div>
 
-
-                        <p class="text-sm text-[#26352D] bg-white border border-[#DDE8D5] rounded-lg p-3 mb-3">
-                            Something exciting is brewing! We're opening our doors this weekend ☕
-                        </p>
-
+                        <!-- POST CAPTION -->
+                        <div class="bg-white border border-[#DDE8D5] rounded-lg p-2.5 mb-3 shadow-xs">
+                            <p class="text-xs text-[#26352D] leading-relaxed">
+                                Something exciting is brewing! ☕ We're officially opening our doors this weekend. Come through for 50% off all artisan brews! 🎉✨
+                            </p>
+                        </div>
 
                         <!-- HASHTAGS -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-
-                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2 py-1 rounded-full">
-                                #CoffeeShop
-                            </span>
-
-                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2 py-1 rounded-full">
-                                #CafeLife
-                            </span>
-
-                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[11px] px-2 py-1 rounded-full">
-                                #CoffeeTime
-                            </span>
-
+                        <div class="flex flex-wrap gap-1.5 mb-3">
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[10px] font-semibold px-2 py-0.5 rounded-full">#CoffeeShop</span>
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[10px] font-semibold px-2 py-0.5 rounded-full">#CafeLife</span>
+                            <span class="bg-[#DDE8D5] text-[#2F5D50] text-[10px] font-semibold px-2 py-0.5 rounded-full">#ArtisanBrew</span>
                         </div>
 
-
-                        <!-- ANALYTICS -->
-                        <div class="grid grid-cols-2 gap-4">
-
-                            <div class="bg-white border border-[#DDE8D5] rounded-lg p-3 text-center">
-
-                                <p id="reach" class="text-lg font-semibold text-[#2F5D50]">
-                                    1.2k
-                                </p>
-
-                                <p class="text-[11px] text-[#8B978A]">
-                                    reach
-                                </p>
-
+                        <!-- ENGAGEMENT / ANALYTICS STATS -->
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <div class="bg-white border border-[#DDE8D5] rounded-lg p-2.5 flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-lg bg-[#DDE8D5]/60 flex items-center justify-center text-[#2F5D50]">
+                                    <i class="fa-solid fa-eye text-xs"></i>
+                                </div>
+                                <div class="text-left">
+                                    <p id="reach" class="text-sm font-bold text-[#2F5D50]">1.4k</p>
+                                    <p class="text-[10px] text-[#8B978A]">Est. Reach</p>
+                                </div>
                             </div>
 
-
-                            <div class="bg-white border border-[#DDE8D5] rounded-lg p-3 text-center">
-
-                                <p id="likes" class="text-lg font-semibold text-[#2F5D50]">
-                                    94
-                                </p>
-
-                                <p class="text-[11px] text-[#8B978A]">
-                                    likes
-                                </p>
-
+                            <div class="bg-white border border-[#DDE8D5] rounded-lg p-2.5 flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-lg bg-[#DDE8D5]/60 flex items-center justify-center text-[#2F5D50]">
+                                    <i class="fa-solid fa-heart text-xs text-rose-500"></i>
+                                </div>
+                                <div class="text-left">
+                                    <p id="likes" class="text-sm font-bold text-[#2F5D50]">128</p>
+                                    <p class="text-[10px] text-[#8B978A]">Likes</p>
+                                </div>
                             </div>
-
                         </div>
 
                     </div>
-
                 </div>
 
             </div>
-
         </section>
 
-
-        <!-- SOCIAL PLATFORMS -->
-        <section class="border-t border-b border-[#DDE8D5] px-5 py-5 text-center animate-fade-up delay-300">
-
-            <p class="text-xs text-[#8B978A] mb-3 tracking-wide">
-                WORKS ACROSS EVERY MAJOR PLATFORM
+        <!-- SOCIAL PLATFORMS BAR -->
+        <section class="border-t border-b border-[#DDE8D5] bg-white/50 px-5 py-6 text-center animate-fade-up delay-300">
+            <p class="text-[11px] font-semibold text-[#8B978A] mb-4 tracking-wider uppercase">
+                Works across every major platform
             </p>
 
-            <div class="flex flex-wrap justify-center gap-6 md:gap-9 text-sm text-[#5C6B58]">
-
-                <span class="flex items-center gap-2">
-                    <i class="fa-brands fa-instagram"></i>
+            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm">
+                <span class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-[#DDE8D5] shadow-xs text-slate-700 font-medium hover:border-[#2F5D50] transition">
+                    <i class="fa-brands fa-instagram text-pink-600 text-base"></i>
                     Instagram
                 </span>
 
-                <span class="flex items-center gap-2">
-                    <i class="fa-brands fa-facebook"></i>
+                <span class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-[#DDE8D5] shadow-xs text-slate-700 font-medium hover:border-[#2F5D50] transition">
+                    <i class="fa-brands fa-facebook text-blue-600 text-base"></i>
                     Facebook
                 </span>
 
-                <span class="flex items-center gap-2">
-                    <i class="fa-brands fa-linkedin"></i>
+                <span class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-[#DDE8D5] shadow-xs text-slate-700 font-medium hover:border-[#2F5D50] transition">
+                    <i class="fa-brands fa-linkedin text-blue-700 text-base"></i>
                     LinkedIn
                 </span>
 
-                <span class="flex items-center gap-2">
-                    <i class="fa-brands fa-x-twitter"></i>
-                    X
+                <span class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-[#DDE8D5] shadow-xs text-slate-700 font-medium hover:border-[#2F5D50] transition">
+                    <i class="fa-brands fa-x-twitter text-slate-900 text-base"></i>
+                    X (Twitter)
                 </span>
-
             </div>
-
         </section>
 
-
-        <!-- FEATURES -->
-        <section id="features" class="max-w-6xl mx-auto px-5 py-14 md:py-16">
+        <!-- FEATURES SECTION WITH VISUAL MOCKUPS -->
+        <section id="features" class="max-w-6xl mx-auto px-5 py-16 md:py-20">
 
             <!-- HEADING -->
-            <div class="text-center mb-10 animate-fade-up">
-
-                <h2 class="text-2xl font-semibold mb-2">
+            <div class="text-center mb-12 animate-fade-up">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-[#26352D]">
                     Everything you need to stay consistent
                 </h2>
-
-                <p class="text-sm text-[#5C6B58]">
+                <p class="text-sm sm:text-base text-[#5C6B58]">
                     From first draft to published post, in minutes.
                 </p>
-
             </div>
-
 
             <!-- FEATURE CARDS -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
+                <!-- CARD 1: AI Captions -->
+                <div class="bg-white border border-[#DDE8D5] rounded-2xl p-6 shadow-sm hover:shadow-md transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Visual Image Mockup inside Card -->
+                        <div class="w-full h-36 bg-[#F5F8F1] rounded-xl mb-5 overflow-hidden border border-[#DDE8D5] relative flex items-center justify-center p-3">
+                            <div class="w-full bg-white rounded-lg p-2.5 shadow-xs border border-[#DDE8D5]">
+                                <div class="flex items-center justify-between mb-1.5">
+                                    <span class="text-[10px] font-bold text-[#2F5D50] flex items-center gap-1">
+                                        <i class="fa-solid fa-sparkles"></i> AI Tone: Engaging
+                                    </span>
+                                    <span class="text-[9px] text-[#8B978A]">Ready</span>
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="h-2 bg-[#DDE8D5] rounded-full w-full"></div>
+                                    <div class="h-2 bg-[#DDE8D5] rounded-full w-4/5"></div>
+                                    <div class="h-2 bg-[#2F5D50]/30 rounded-full w-1/2"></div>
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- CARD 1 -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-6 animate-fade-up delay-100">
+                        <div class="w-9 h-9 rounded-lg bg-[#DDE8D5] flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-pen text-[#2F5D50] text-sm"></i>
+                        </div>
 
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center mb-4">
+                        <h3 class="font-bold text-base mb-2 text-[#26352D]">
+                            AI captions and hashtags
+                        </h3>
 
-                        <i class="fa-solid fa-pen text-[#2F5D50] text-xl"></i>
-
+                        <p class="text-sm text-[#5C6B58] leading-6">
+                            Generate on-brand copy for any platform and tone, then edit or regenerate in one click.
+                        </p>
                     </div>
-
-                    <h3 class="font-semibold text-[15px] mb-2">
-                        AI captions and hashtags
-                    </h3>
-
-                    <p class="text-sm text-[#5C6B58] leading-6">
-                        Generate on-brand copy for any platform and tone, then edit or regenerate in one click.
-                    </p>
-
                 </div>
 
+                <!-- CARD 2: Visual Calendar -->
+                <div class="bg-white border border-[#DDE8D5] rounded-2xl p-6 shadow-sm hover:shadow-md transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Visual Image Mockup inside Card -->
+                        <div class="w-full h-36 bg-[#F5F8F1] rounded-xl mb-5 overflow-hidden border border-[#DDE8D5] p-3 flex flex-col justify-between">
+                            <div class="grid grid-cols-4 gap-1.5 text-center">
+                                <div class="bg-white p-1.5 rounded border border-[#DDE8D5] text-[9px] font-semibold text-slate-600">Mon</div>
+                                <div class="bg-white p-1.5 rounded border border-[#DDE8D5] text-[9px] font-semibold text-slate-600">Tue</div>
+                                <div class="bg-[#2F5D50] p-1.5 rounded text-[9px] font-semibold text-white">Wed</div>
+                                <div class="bg-white p-1.5 rounded border border-[#DDE8D5] text-[9px] font-semibold text-slate-600">Thu</div>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg border border-[#DDE8D5] flex items-center gap-2">
+                                <img src="./images/coffeelogo.avif" class="w-6 h-6 rounded object-cover" alt="thumb">
+                                <div class="flex-1">
+                                    <div class="h-1.5 bg-[#2F5D50] rounded-full w-3/4 mb-1"></div>
+                                    <div class="h-1.5 bg-slate-200 rounded-full w-1/2"></div>
+                                </div>
+                                <i class="fa-solid fa-clock text-[10px] text-[#2F5D50]"></i>
+                            </div>
+                        </div>
 
-                <!-- CARD 2 -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-6 animate-fade-up delay-200">
+                        <div class="w-9 h-9 rounded-lg bg-[#DDE8D5] flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-calendar-days text-[#2F5D50] text-sm"></i>
+                        </div>
 
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center mb-4">
+                        <h3 class="font-bold text-base mb-2 text-[#26352D]">
+                            Visual content calendar
+                        </h3>
 
-                      <i class="fa-solid fa-calendar-days text-[#2F5D50] text-xl"></i>
-
+                        <p class="text-sm text-[#5C6B58] leading-6">
+                            See every scheduled post at a glance and drag to reschedule in seconds.
+                        </p>
                     </div>
-
-                    <h3 class="font-semibold text-[15px] mb-2">
-                        Visual content calendar
-                    </h3>
-
-                    <p class="text-sm text-[#5C6B58] leading-6">
-                        See every scheduled post at a glance and drag to reschedule in seconds.
-                    </p>
-
                 </div>
 
+                <!-- CARD 3: Analytics -->
+                <div class="bg-white border border-[#DDE8D5] rounded-2xl p-6 shadow-sm hover:shadow-md transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Visual Image Mockup inside Card -->
+                        <div class="w-full h-36 bg-[#F5F8F1] rounded-xl mb-5 overflow-hidden border border-[#DDE8D5] p-3 flex flex-col justify-between">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-bold text-[#26352D]">Engagement Rate</span>
+                                <span class="text-[10px] font-bold text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded">+24.8%</span>
+                            </div>
+                            <div class="flex items-end gap-1.5 h-16 pt-2">
+                                <div class="bg-[#DDE8D5] w-1/6 h-[40%] rounded-t"></div>
+                                <div class="bg-[#DDE8D5] w-1/6 h-[60%] rounded-t"></div>
+                                <div class="bg-[#DDE8D5] w-1/6 h-[30%] rounded-t"></div>
+                                <div class="bg-[#DDE8D5] w-1/6 h-[75%] rounded-t"></div>
+                                <div class="bg-[#DDE8D5] w-1/6 h-[55%] rounded-t"></div>
+                                <div class="bg-[#2F5D50] w-1/6 h-[100%] rounded-t"></div>
+                            </div>
+                        </div>
 
-                <!-- CARD 3 -->
-                <div class="bg-white border border-[#DDE8D5] rounded-xl p-6 animate-fade-up delay-300">
+                        <div class="w-9 h-9 rounded-lg bg-[#DDE8D5] flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-chart-column text-[#2F5D50] text-sm"></i>
+                        </div>
 
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center mb-4">
+                        <h3 class="font-bold text-base mb-2 text-[#26352D]">
+                            Simple performance analytics
+                        </h3>
 
-                        <i class="fa-solid fa-chart-column text-[#2F5D50] text-xl"></i>
-
+                        <p class="text-sm text-[#5C6B58] leading-6">
+                            Track likes, reach and engagement across platforms without switching tabs.
+                        </p>
                     </div>
-
-                    <h3 class="font-semibold text-[15px] mb-2">
-                        Simple performance analytics
-                    </h3>
-
-                    <p class="text-sm text-[#5C6B58] leading-6">
-                        Track likes, reach and engagement across platforms without switching tabs.
-                    </p>
-
                 </div>
 
             </div>
-
         </section>
-
-
+        
         <!-- CTA -->
-        <section class="bg-[#2F5D50] px-5 py-12 text-center animate-scale-in">
-
-            <h2 class="text-xl sm:text-2xl font-semibold text-white mb-2">
-                Ready to simplify your social media?
-            </h2>
-
-            <p class="text-sm text-[#DDE8D5] mb-6">
-                Join teams already saving hours every week.
-            </p>
-
-            <a href="signup.html"
-               class="inline-block bg-white text-[#2F5D50] px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#F5F8F1]">
-                Start your free trial
-            </a>
-
+        <section class="bg-[#2F5D50] px-5 py-14 text-center animate-scale-in">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    Ready to simplify your social media?
+                </h2>
+                <p class="text-sm sm:text-base text-[#DDE8D5] mb-6">
+                    Join teams already saving hours every week.
+                </p>
+                <a href="signup.html" class="inline-block bg-white text-[#2F5D50] px-7 py-3.5 rounded-lg text-sm font-bold shadow-md hover:bg-[#F5F8F1] transition">
+                    Start your free trial
+                </a>
+            </div>
         </section>
 
 
         <!-- FOOTER -->
-        <footer class="px-5 py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-
+        <footer class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span class="text-xs text-[#8B978A]">
-                © 2026 Hexovate Solutions
+                © 2026 Hexovate Solutions. All rights reserved.
             </span>
-
-            <div class="flex gap-5 text-xs text-[#8B978A]">
-
-                <a href="#" class="hover:text-[#2F5D50]">
-                    Privacy
-                </a>
-
-                <a href="#" class="hover:text-[#2F5D50]">
-                    Terms
-                </a>
-
-                <a href="#" class="hover:text-[#2F5D50]">
-                    Contact
-                </a>
-
+            <div class="flex gap-6 text-xs font-medium text-[#8B978A]">
+                <a href="#" class="hover:text-[#2F5D50] transition">Privacy</a>
+                <a href="#" class="hover:text-[#2F5D50] transition">Terms</a>
+                <a href="#" class="hover:text-[#2F5D50] transition">Contact</a>
             </div>
-
         </footer>
 
     </div>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hexovate - Content Calendar</title>
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./output.css">
 
     <!-- HORIZONTAL SCROLLBAR REMOVER -->
@@ -16,18 +16,25 @@
             overflow-x: hidden;
             max-width: 100%;
         }
+        .hexo-card {
+            transition: all 0.18s ease-in-out;
+        }
+        .hexo-card:hover {
+            transform: translateY(-1px);
+            border-color: #2F5D50;
+        }
     </style>
 </head>
 
-<body class="bg-[#F5F8F1] overflow-x-hidden w-full relative">
+<body class="bg-[#F5F8F1] text-[#26352D] overflow-x-hidden w-full relative antialiased">
 
-    <!-- 1. DARK OVERLAY (Mobile par peeche ka content blur/dark karne ke liye) -->
-    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
+    <!-- 1. DARK OVERLAY (Mobile Drawer Backdrop) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[2px] z-40 md:hidden transition-opacity"></div>
 
     <!-- 2. MAIN CONTAINER -->
     <div class="min-h-screen flex w-full overflow-x-hidden">
 
-        <!-- SIDEBAR (Setting page jaisa Ultra-Smooth Drawer) -->
+        <!-- SIDEBAR -->
         <aside id="sidebar" class="fixed md:sticky top-0 inset-y-0 left-0 z-50 w-[240px] md:w-[210px] bg-[#2F5D50] min-h-screen flex flex-col justify-between p-4 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex-shrink-0 shadow-2xl md:shadow-none">
 
             <!-- TOP SIDEBAR -->
@@ -37,15 +44,15 @@
                 <div class="flex items-center justify-between mb-6 px-1">
                     <!-- Logo -->
                     <a href="overview.html" class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
                         </div>
-                        <span class="text-white font-semibold text-sm">
+                        <span class="text-white font-bold text-sm">
                             Hexovate
                         </span>
                     </a>
 
-                    <!-- Close Button (Logo ke theek samne right side) -->
+                    <!-- Close Button -->
                     <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
                         <i class="fa-solid fa-xmark text-base"></i>
                     </button>
@@ -56,49 +63,49 @@
 
                     <!-- OVERVIEW -->
                     <a href="overview.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
                     </a>
 
                     <!-- CREATE POST -->
                     <a href="createpost.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
                     </a>
 
                     <!-- ACTIVE -->
                     <a href="contentcalender.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium shadow-xs">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
                     </a>
 
                     <!-- SCHEDULED POSTS -->
                     <a href="schedulepost.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-regular fa-clock w-4"></i>
                         Scheduled posts
                     </a>
 
                     <!-- CONTENT HISTORY -->
                     <a href="contenthistory.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-clock-rotate-left w-4"></i>
                         Content history
                     </a>
 
                     <!-- ANALYTICS -->
                     <a href="analytic.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
                     </a>
 
                     <!-- SETTINGS -->
                     <a href="setting.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
                     </a>
@@ -107,13 +114,16 @@
 
             </div>
 
-            <!-- USER -->
-            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-1">
-                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-[11px] font-semibold flex-shrink-0">
-                    YK
+            <!-- USER AVATAR IN SIDEBAR FOOTER -->
+            <div class="flex items-center gap-2.5 border-t border-white/10 pt-3 px-1">
+                <div class="relative flex-shrink-0">
+                    <img src="./images/avatar3.avif" 
+                         class="w-8 h-8 rounded-full object-cover ring-2 ring-[#7A8450]" 
+                         alt="Yesra Avatar">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 absolute -bottom-0.5 -right-0.5 ring-1 ring-[#2F5D50]"></span>
                 </div>
                 <div class="min-w-0">
-                    <p class="text-xs text-white font-semibold truncate">
+                    <p class="text-xs text-white font-bold truncate">
                         Yesra Khan
                     </p>
                     <p class="text-[10px] text-[#B9C7AE] truncate">
@@ -124,52 +134,56 @@
 
         </aside>
 
-        <!-- 3. MAIN CONTENT ('min-w-0' add kiya hai) -->
+        <!-- 3. MAIN CONTENT -->
         <main class="flex-1 min-w-0 px-3 py-6 sm:px-6 lg:px-9 animate-fade-up">
 
             <!-- MOBILE HEADER -->
-            <div class="md:hidden flex items-center justify-between mb-6 animate-fade-down delay-200">
+            <div class="md:hidden flex items-center justify-between mb-6">
                 <a href="overview.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center shadow-sm">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
                     </div>
-                    <span class="font-semibold text-[#26352D]">
+                    <span class="font-bold text-[#26352D]">
                         Hexovate
                     </span>
                 </a>
 
-                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition shadow-sm">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
             <!-- TOP BAR -->
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5 animate-fade-down delay-200">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                 <!-- MONTH TITLE -->
-                <h2 id="monthTitle" class="text-lg font-semibold text-[#26352D]">
-                    August 2026
-                </h2>
+                <div>
+                    <h2 id="monthTitle" class="text-xl font-bold text-[#26352D] mb-0.5">
+                        August 2026
+                    </h2>
+                    <p class="text-xs text-[#5C6B58]">Visual schedule of your published and upcoming posts.</p>
+                </div>
 
                 <div class="flex items-center gap-3">
                     <!-- PREVIOUS MONTH -->
-                    <button id="prevMonth" class="text-[#5C6B58] hover:text-[#2F5D50] p-1 cursor-pointer">
-                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    <button id="prevMonth" class="w-8 h-8 rounded-lg bg-white border border-[#DDE8D5] text-[#5C6B58] hover:text-[#2F5D50] flex items-center justify-center cursor-pointer transition shadow-xs">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
                     </button>
 
                     <!-- NEXT MONTH -->
-                    <button id="nextMonth" class="text-[#5C6B58] hover:text-[#2F5D50] p-1 cursor-pointer">
-                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    <button id="nextMonth" class="w-8 h-8 rounded-lg bg-white border border-[#DDE8D5] text-[#5C6B58] hover:text-[#2F5D50] flex items-center justify-center cursor-pointer transition shadow-xs">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
 
                     <!-- NEW POST -->
-                    <a id="newPostBtn" href="createpost.html" class="bg-[#2F5D50] text-white text-xs px-4 py-2 rounded-lg hover:bg-[#24493E] transition font-medium">
-                        + New post
+                    <a id="newPostBtn" href="createpost.html" class="bg-[#2F5D50] text-white text-xs px-4 py-2 rounded-lg hover:bg-[#24493E] transition font-bold flex items-center gap-1.5 shadow-sm">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        <span>New post</span>
                     </a>
                 </div>
             </div>
 
-            <!-- DAYS -->
-            <div class="grid grid-cols-7 gap-1 sm:gap-2 text-[10px] sm:text-[11px] text-[#8B978A] text-center mb-1.5 animate-fade-up delay-300 font-medium">
+            <!-- DAYS OF WEEK -->
+            <div class="grid grid-cols-7 gap-1 sm:gap-2 text-[11px] text-[#5C6B58] text-center mb-2 font-bold uppercase tracking-wider">
                 <span>Sun</span>
                 <span>Mon</span>
                 <span>Tue</span>
@@ -179,223 +193,30 @@
                 <span>Sat</span>
             </div>
 
-            <!-- CALENDAR -->
-            <div id="calendar" class="grid grid-cols-7 gap-1 sm:gap-2 mb-5 animate-scale-in delay-300">
+            <!-- CALENDAR GRID (Javascript yahan khud dates aur images banayega) -->
+            <div id="calendar" class="grid grid-cols-7 gap-1 sm:gap-2 mb-5 animate-scale-in delay-300"></div>
 
-                <!-- DAY 1 -->
-                <div id="day-1" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">1</span>
-                    <div class="bg-[#DDE8D5] text-[#2F5D50] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        IG · 6pm
-                    </div>
-                </div>
-
-                <!-- DAY 2 -->
-                <div id="day-2" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">2</span>
-                </div>
-
-                <!-- DAY 3 -->
-                <div id="day-3" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">3</span>
-                    <div class="bg-[#DDE8D5] text-[#2F5D50] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        IG · 11am
-                    </div>
-                </div>
-
-                <!-- DAY 4 -->
-                <div id="day-4" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">4</span>
-                </div>
-
-                <!-- DAY 5 -->
-                <div id="day-5" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">5</span>
-                    <div class="bg-[#DDE8D5] text-[#2F5D50] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        LI · 10am
-                    </div>
-                </div>
-
-                <!-- DAY 6 -->
-                <div id="day-6" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">6</span>
-                </div>
-
-                <!-- DAY 7 -->
-                <div id="day-7" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">7</span>
-                </div>
-
-                <!-- DAY 8 -->
-                <div id="day-8" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">8</span>
-                    <div class="bg-[#DDE8D5] text-[#2F5D50] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        X · 1pm
-                    </div>
-                </div>
-
-                <!-- DAY 9 -->
-                <div id="day-9" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">9</span>
-                </div>
-
-                <!-- DAY 10 -->
-                <div id="day-10" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">10</span>
-                    <div class="bg-[#DDE8D5] text-[#2F5D50] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        FB · 2pm
-                    </div>
-                </div>
-
-                <!-- DAY 11 -->
-                <div id="day-11" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">11</span>
-                </div>
-
-                <!-- DAY 12 -->
-                <div id="day-12" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">12</span>
-                    <div class="bg-[#DDE8D5] text-[#2F5D50] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        IG · 9am
-                    </div>
-                </div>
-
-                <!-- DAY 13 -->
-                <div id="day-13" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">13</span>
-                </div>
-
-                <!-- DAY 14 -->
-                <div id="day-14" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">14</span>
-                </div>
-
-                <!-- DAY 15 -->
-                <div id="day-15" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">15</span>
-                </div>
-
-                <!-- DAY 16 TODAY -->
-                <div id="day-16" class="hexo-card bg-white border-[1.5px] border-[#2F5D50] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <div class="flex justify-between items-start">
-                        <span class="text-[10px] sm:text-[11px] text-[#2F5D50] font-bold">16</span>
-                        <span class="bg-[#2F5D50] text-white text-[7px] sm:text-[8px] px-1 py-0.5 rounded font-semibold">Today</span>
-                    </div>
-                </div>
-
-                <!-- DAY 17 -->
-                <div id="day-17" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">17</span>
-                </div>
-
-                <!-- DAY 18 -->
-                <div id="day-18" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">18</span>
-                </div>
-
-                <!-- DAY 19 -->
-                <div id="day-19" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">19</span>
-                </div>
-
-                <!-- DAY 20 -->
-                <div id="day-20" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">20</span>
-                    <div class="bg-[#F0E6C8] text-[#8A6D1F] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        IG · 7pm
-                    </div>
-                </div>
-
-                <!-- DAY 21 -->
-                <div id="day-21" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">21</span>
-                    <div class="bg-[#F0E6C8] text-[#8A6D1F] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        FB · 2pm
-                    </div>
-                </div>
-
-                <!-- DAY 22 -->
-                <div id="day-22" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">22</span>
-                </div>
-
-                <!-- DAY 23 -->
-                <div id="day-23" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">23</span>
-                </div>
-
-                <!-- DAY 24 -->
-                <div id="day-24" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">24</span>
-                    <div class="bg-[#F0E6C8] text-[#8A6D1F] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        LI · 10am
-                    </div>
-                </div>
-
-                <!-- DAY 25 -->
-                <div id="day-25" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">25</span>
-                    <div class="bg-[#F0E6C8] text-[#8A6D1F] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        X · 5:30pm
-                    </div>
-                </div>
-
-                <!-- DAY 26 -->
-                <div id="day-26" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">26</span>
-                </div>
-
-                <!-- DAY 27 -->
-                <div id="day-27" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden flex flex-col justify-between">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">27</span>
-                    <div class="bg-[#F0E6C8] text-[#8A6D1F] text-[8px] sm:text-[9px] px-1 py-0.5 rounded mt-1 truncate">
-                        IG · 11am
-                    </div>
-                </div>
-
-                <!-- DAY 28 -->
-                <div id="day-28" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">28</span>
-                </div>
-
-                <!-- DAY 29 -->
-                <div id="day-29" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">29</span>
-                </div>
-
-                <!-- DAY 30 -->
-                <div id="day-30" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">30</span>
-                </div>
-
-                <!-- DAY 31 -->
-                <div id="day-31" class="hexo-card bg-white border border-[#DDE8D5] rounded-lg p-1 sm:p-1.5 h-[62px] sm:h-[76px] overflow-hidden">
-                    <span class="text-[10px] sm:text-[11px] text-[#5C6B58] font-medium">31</span>
-                </div>
-
-            </div>
-
-            <!-- LEGEND -->
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 animate-fade-up delay-400">
-                <div class="flex flex-wrap gap-4 text-[11px] text-[#5C6B58]">
+            <!-- LEGEND & STATS -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-3 bg-white border border-[#DDE8D5] rounded-xl shadow-xs">
+                <div class="flex flex-wrap items-center gap-5 text-xs font-semibold text-[#5C6B58]">
                     <span class="flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-sm bg-[#DDE8D5]"></span>
-                        Published
+                        <span class="w-3 h-3 rounded bg-[#DDE8D5] border border-[#2F5D50]/20"></span>
+                        Published (6)
                     </span>
                     <span class="flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-sm bg-[#F0E6C8]"></span>
-                        Scheduled
+                        <span class="w-3 h-3 rounded bg-[#F0E6C8] border border-[#8A6D1F]/20"></span>
+                        Scheduled (5)
                     </span>
                     <span class="flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-sm border-[1.5px] border-[#2F5D50]"></span>
-                        Today
+                        <span class="w-3 h-3 rounded border-2 border-[#2F5D50]"></span>
+                        Today (16th)
                     </span>
                 </div>
 
                 <!-- CALENDAR STATS -->
-                <p id="calendarStats" class="text-xs text-[#8B978A] m-0">
-                    <span id="publishedCount">6</span> published ·
-                    <span id="scheduledCount">5</span> scheduled this month
+                <p id="calendarStats" class="text-xs text-[#8B978A] m-0 font-medium">
+                    <span id="publishedCount" class="font-bold text-[#2F5D50]">6</span> published ·
+                    <span id="scheduledCount" class="font-bold text-[#8A6D1F]">5</span> scheduled this month
                 </p>
             </div>
 

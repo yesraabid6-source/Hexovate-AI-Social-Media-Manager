@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hexovate - Scheduled Posts</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -13,18 +15,24 @@
             overflow-x: hidden;
             max-width: 100%;
         }
+        .hexo-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .hexo-card:hover {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 
-<body class="bg-[#F5F8F1] overflow-x-hidden w-full relative">
+<body class="bg-[#F5F8F1] text-[#26352D] overflow-x-hidden w-full relative antialiased">
 
-    <!-- 1. DARK OVERLAY (Mobile par peeche ka content blur/dark karne ke liye) -->
-    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 md:hidden"></div>
+    <!-- 1. DARK OVERLAY (Mobile Drawer Backdrop) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="hidden fixed inset-0 bg-black/50 backdrop-blur-[2px] z-40 md:hidden transition-opacity"></div>
 
     <!-- 2. MAIN CONTAINER -->
     <div class="min-h-screen flex w-full overflow-x-hidden">
 
-        <!-- SIDEBAR (Setting page jaisa Ultra-Smooth Drawer) -->
+        <!-- SIDEBAR -->
         <aside id="sidebar" class="fixed md:sticky top-0 inset-y-0 left-0 z-50 w-[240px] md:w-[210px] bg-[#2F5D50] min-h-screen flex flex-col justify-between p-4 -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex-shrink-0 shadow-2xl md:shadow-none">
 
             <!-- TOP SIDEBAR -->
@@ -34,15 +42,15 @@
                 <div class="flex items-center justify-between mb-6 px-1">
                     <!-- Logo -->
                     <a href="overview.html" class="flex items-center gap-2">
-                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0">
+                        <div class="w-7 h-7 rounded-lg bg-[#7A8450] flex items-center justify-center flex-shrink-0 shadow-sm">
                             <i class="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
                         </div>
-                        <span class="text-white font-semibold text-sm">
+                        <span class="text-white font-bold text-sm">
                             Hexovate
                         </span>
                     </a>
 
-                    <!-- Close Button (Logo ke theek samne right side) -->
+                    <!-- Close Button -->
                     <button onclick="toggleSidebar()" class="md:hidden text-white/75 hover:text-white p-1 rounded hover:bg-white/10 cursor-pointer">
                         <i class="fa-solid fa-xmark text-base"></i>
                     </button>
@@ -53,49 +61,49 @@
 
                     <!-- OVERVIEW -->
                     <a href="overview.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-pie w-4"></i>
                         Overview
                     </a>
 
                     <!-- CREATE POST -->
                     <a href="createpost.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-pen-to-square w-4"></i>
                         Create post
                     </a>
 
                     <!-- CONTENT CALENDAR -->
                     <a href="contentcalender.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-calendar-days w-4"></i>
                         Content calendar
                     </a>
 
                     <!-- SCHEDULED POSTS (Active) -->
                     <a href="schedulepost.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/15 text-white text-xs font-medium shadow-xs">
                         <i class="fa-regular fa-clock w-4"></i>
                         Scheduled posts
                     </a>
 
                     <!-- CONTENT HISTORY -->
                     <a href="contenthistory.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-clock-rotate-left w-4"></i>
                         Content history
                     </a>
 
                     <!-- ANALYTICS -->
                     <a href="analytic.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-chart-column w-4"></i>
                         Analytics
                     </a>
 
                     <!-- SETTINGS -->
                     <a href="setting.html"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[#C9D6C2] text-xs hover:bg-white/10 hover:text-white transition">
                         <i class="fa-solid fa-gear w-4"></i>
                         Settings
                     </a>
@@ -104,13 +112,16 @@
 
             </div>
 
-            <!-- USER -->
-            <div class="flex items-center gap-2 border-t border-white/10 pt-3 px-1">
-                <div class="w-8 h-8 rounded-full bg-[#7A8450] flex items-center justify-center text-white text-[11px] font-semibold flex-shrink-0">
-                    YK
+            <!-- USER AVATAR IN SIDEBAR FOOTER -->
+            <div class="flex items-center gap-2.5 border-t border-white/10 pt-3 px-1">
+                <div class="relative flex-shrink-0">
+                    <img src="./images/avatar3.avif" 
+                         class="w-8 h-8 rounded-full object-cover ring-2 ring-[#7A8450]" 
+                         alt="Yesra Avatar">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 absolute -bottom-0.5 -right-0.5 ring-1 ring-[#2F5D50]"></span>
                 </div>
                 <div class="min-w-0">
-                    <p class="text-xs text-white font-semibold truncate">
+                    <p class="text-xs text-white font-bold truncate">
                         Yesra
                     </p>
                     <p class="text-[10px] text-[#B9C7AE] truncate">
@@ -121,174 +132,231 @@
 
         </aside>
 
-        <!-- 3. MAIN CONTENT ('min-w-0' add kiya hai) -->
+        <!-- 3. MAIN CONTENT -->
         <main class="flex-1 min-w-0 px-4 py-6 sm:px-6 lg:px-9 animate-fade-up">
 
             <!-- MOBILE HEADER -->
             <div class="md:hidden flex items-center justify-between mb-6 animate-fade-down delay-200">
                 <a href="overview.html" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-lg bg-[#2F5D50] flex items-center justify-center shadow-sm">
                         <i class="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
                     </div>
-                    <span class="font-semibold text-[#26352D]">
+                    <span class="font-bold text-[#26352D]">
                         Hexovate
                     </span>
                 </a>
 
-                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition">
+                <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-[#2F5D50] text-white flex items-center justify-center cursor-pointer hover:bg-[#24493E] active:scale-95 transition shadow-sm">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
 
             <!-- PAGE HEADER -->
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5 animate-fade-down delay-200">
-                <h2 class="text-lg font-semibold text-[#26352D]">
-                    Scheduled posts
-                </h2>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 animate-fade-down delay-200">
+                <div>
+                    <h2 class="text-xl font-bold text-[#26352D] mb-0.5">
+                        Scheduled posts
+                    </h2>
+                    <p class="text-xs text-[#5C6B58]">View and manage posts queued for automatic publishing.</p>
+                </div>
 
-                <a href="contentcalender.html" class="btn-secondary w-fit flex items-center gap-2 border border-[#DDE8D5] bg-white text-[#2F5D50] text-xs px-3.5 py-2 rounded-lg hover:bg-[#F5F8F1] transition font-medium">
-                    <i class="fa-solid fa-calendar-days text-sm"></i>
-                    View calendar
-                </a>
+                <div class="flex items-center gap-2.5">
+                    <a href="contentcalender.html" class="flex items-center gap-2 border border-[#DDE8D5] bg-white text-[#2F5D50] text-xs px-3.5 py-2 rounded-lg hover:bg-[#F5F8F1] transition font-bold shadow-xs">
+                        <i class="fa-solid fa-calendar-days text-sm"></i>
+                        <span>View calendar</span>
+                    </a>
+                    <a href="createpost.html" class="flex items-center gap-1.5 bg-[#2F5D50] text-white text-xs px-3.5 py-2 rounded-lg hover:bg-[#24493E] transition font-bold shadow-sm">
+                        <i class="fa-solid fa-plus text-[11px]"></i>
+                        <span>New post</span>
+                    </a>
+                </div>
             </div>
 
             <!-- STATS -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5 animate-fade-up delay-300">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-6 animate-fade-up delay-300">
                 <!-- STAT 1 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4">
-                    <p class="text-[11px] text-[#8B978A] mb-1.5 font-medium">
-                        Upcoming this week
-                    </p>
-                    <p class="text-[22px] font-semibold text-[#26352D]">
-                        5
-                    </p>
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4 shadow-xs">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <p class="text-xs text-[#8B978A] font-semibold">Upcoming this week</p>
+                        <div class="w-7 h-7 rounded-lg bg-[#F5F8F1] flex items-center justify-center text-[#2F5D50]">
+                            <i class="fa-regular fa-calendar text-xs"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-[#26352D]">5</p>
                 </div>
 
                 <!-- STAT 2 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4">
-                    <p class="text-[11px] text-[#8B978A] mb-1.5 font-medium">
-                        Next post
-                    </p>
-                    <p class="text-[22px] font-semibold text-[#7A8450]">
-                        Today
-                    </p>
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4 shadow-xs">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <p class="text-xs text-[#8B978A] font-semibold">Next post</p>
+                        <div class="w-7 h-7 rounded-lg bg-[#F0E6C8]/60 flex items-center justify-center text-[#8A6D1F]">
+                            <i class="fa-regular fa-clock text-xs"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-[#8A6D1F]">Today, 7:00 PM</p>
                 </div>
 
                 <!-- STAT 3 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4">
-                    <p class="text-[11px] text-[#8B978A] mb-1.5 font-medium">
-                        Platforms queued
-                    </p>
-                    <p class="text-[22px] font-semibold text-[#2F5D50]">
-                        4
-                    </p>
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-4 shadow-xs">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <p class="text-xs text-[#8B978A] font-semibold">Platforms queued</p>
+                        <div class="w-7 h-7 rounded-lg bg-[#DDE8D5] flex items-center justify-center text-[#2F5D50]">
+                            <i class="fa-solid fa-share-nodes text-xs"></i>
+                        </div>
+                    </div>
+                    <p class="text-2xl font-bold text-[#2F5D50]">4 Platforms</p>
                 </div>
             </div>
 
-            <!-- SCHEDULED POSTS -->
+            <!-- SCHEDULED POSTS LIST (WITH VISUAL POST THUMBNAILS) -->
             <div class="flex flex-col gap-2.5 animate-fade-up delay-400">
 
-                <!-- POST 1 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                        <i class="fa-brands fa-instagram text-[#2F5D50] text-lg"></i>
+                <!-- POST 1: INSTAGRAM (COFFEE) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs">
+                    <div class="relative shrink-0">
+                        <img src="./images/coffeepost.avif" 
+                             class="w-12 h-12 rounded-xl object-cover border border-[#DDE8D5]" alt="Coffee Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-pink-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
                     </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
-                            New coffee shop opening
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            New coffee shop opening this weekend
                         </p>
-                        <p class="text-xs text-[#8B978A] truncate">
-                            Instagram · 20 Aug, 7:00 PM
+                        <p class="text-xs text-[#8B978A] truncate flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-[11px] text-[#8A6D1F]"></i>
+                            <span>Instagram · <strong>20 Aug, 7:00 PM</strong></span>
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:inline-flex items-center gap-1 bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-3 py-1 rounded-full flex-shrink-0 font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#8A6D1F]"></span>
                         Scheduled
                     </span>
-                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1 cursor-pointer">
+
+                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">
                         <i class="fa-solid fa-ellipsis text-sm"></i>
                     </button>
                 </div>
 
-                <!-- POST 2 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                        <i class="fa-brands fa-facebook text-[#2F5D50] text-lg"></i>
+                <!-- POST 2: FACEBOOK (SALE) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs">
+                    <div class="relative shrink-0">
+                        <img src="./images/salethumbnail.avif" 
+                             class="w-12 h-12 rounded-xl object-cover border border-[#DDE8D5]" alt="Sale Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-blue-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
                     </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
-                            Weekend sale — 20% off
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Weekend sale — 20% off all artisan brews
                         </p>
-                        <p class="text-xs text-[#8B978A] truncate">
-                            Facebook · 21 Aug, 2:00 PM
+                        <p class="text-xs text-[#8B978A] truncate flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-[11px] text-[#8A6D1F]"></i>
+                            <span>Facebook · <strong>21 Aug, 2:00 PM</strong></span>
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:inline-flex items-center gap-1 bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-3 py-1 rounded-full flex-shrink-0 font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#8A6D1F]"></span>
                         Scheduled
                     </span>
-                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1 cursor-pointer">
+
+                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">
                         <i class="fa-solid fa-ellipsis text-sm"></i>
                     </button>
                 </div>
 
-                <!-- POST 3 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                        <i class="fa-brands fa-linkedin text-[#2F5D50] text-lg"></i>
+                <!-- POST 3: LINKEDIN (HIRING) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs">
+                    <div class="relative shrink-0">
+                        <img src="./images/hiringthumbnail.jpg" 
+                             class="w-12 h-12 rounded-xl object-cover border border-[#DDE8D5]" alt="Hiring Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-blue-700 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </span>
                     </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
-                            We're hiring! Join our team
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            We're hiring! Join our growing barista team
                         </p>
-                        <p class="text-xs text-[#8B978A] truncate">
-                            LinkedIn · 24 Aug, 10:00 AM
+                        <p class="text-xs text-[#8B978A] truncate flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-[11px] text-[#8A6D1F]"></i>
+                            <span>LinkedIn · <strong>24 Aug, 10:00 AM</strong></span>
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:inline-flex items-center gap-1 bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-3 py-1 rounded-full flex-shrink-0 font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#8A6D1F]"></span>
                         Scheduled
                     </span>
-                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1 cursor-pointer">
+
+                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">
                         <i class="fa-solid fa-ellipsis text-sm"></i>
                     </button>
                 </div>
 
-                <!-- POST 4 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                        <i class="fa-brands fa-x-twitter text-[#2F5D50] text-lg"></i>
+                <!-- POST 4: X (COMMUNITY CELEBRATION) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs">
+                    <div class="relative shrink-0">
+                        <img src="./images/celebration.avif" 
+                             class="w-12 h-12 rounded-xl object-cover border border-[#DDE8D5]" alt="Celebration Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </span>
                     </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
-                            Thank you for 10k followers
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Thank you for 10k followers celebration
                         </p>
-                        <p class="text-xs text-[#8B978A] truncate">
-                            X · 25 Aug, 5:30 PM
+                        <p class="text-xs text-[#8B978A] truncate flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-[11px] text-[#8A6D1F]"></i>
+                            <span>X (Twitter) · <strong>25 Aug, 5:30 PM</strong></span>
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:inline-flex items-center gap-1 bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-3 py-1 rounded-full flex-shrink-0 font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#8A6D1F]"></span>
                         Scheduled
                     </span>
-                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1 cursor-pointer">
+
+                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">
                         <i class="fa-solid fa-ellipsis text-sm"></i>
                     </button>
                 </div>
 
-                <!-- POST 5 -->
-                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-[#DDE8D5] flex items-center justify-center flex-shrink-0">
-                        <i class="fa-brands fa-instagram text-[#2F5D50] text-lg"></i>
+                <!-- POST 5: INSTAGRAM (ROASTING BEANS) -->
+                <div class="hexo-card bg-white border border-[#DDE8D5] rounded-xl p-3.5 sm:px-4 flex items-center gap-3.5 hover:border-[#2F5D50]/40 shadow-xs">
+                    <div class="relative shrink-0">
+                        <img src="./images/coffeeimglogo2.avif" 
+                             class="w-12 h-12 rounded-xl object-cover border border-[#DDE8D5]" alt="Coffee Roasting Post">
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-pink-600 text-white flex items-center justify-center text-[9px] shadow-xs">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
                     </div>
+
                     <div class="flex-1 min-w-0">
-                        <p class="text-[13px] text-[#26352D] font-semibold truncate mb-0.5">
-                            Behind the scenes: roasting day
+                        <p class="text-sm text-[#26352D] font-bold truncate mb-0.5">
+                            Behind the scenes: artisan roasting day ☕
                         </p>
-                        <p class="text-xs text-[#8B978A] truncate">
-                            Instagram · 27 Aug, 11:00 AM
+                        <p class="text-xs text-[#8B978A] truncate flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-[11px] text-[#8A6D1F]"></i>
+                            <span>Instagram · <strong>27 Aug, 11:00 AM</strong></span>
                         </p>
                     </div>
-                    <span class="hidden sm:block bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-2.5 py-1 rounded-full flex-shrink-0 font-medium">
+
+                    <span class="hidden sm:inline-flex items-center gap-1 bg-[#F0E6C8] text-[#8A6D1F] text-[11px] px-3 py-1 rounded-full flex-shrink-0 font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#8A6D1F]"></span>
                         Scheduled
                     </span>
-                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1 cursor-pointer">
+
+                    <button class="text-[#8B978A] hover:text-[#2F5D50] flex-shrink-0 p-1.5 rounded-lg hover:bg-[#F5F8F1] cursor-pointer transition">
                         <i class="fa-solid fa-ellipsis text-sm"></i>
                     </button>
                 </div>
