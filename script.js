@@ -38,35 +38,6 @@ function handleSaveDraft() {
     }, 500);
 }
 
-// ==================== LOGIN & SIGNUP HANDLERS ====================
-let email = document.getElementById("email");
-let password = document.getElementById("password");
-let overview = document.getElementById("overview");
-if (email && password && overview) {
-    overview.addEventListener("click", () => {
-        if (email.value === "" || password.value === "") {
-            alert("Enter Email and Password");
-        } else {
-            window.location.href = "overview.html";
-        }
-    });
-}
-
-let username = document.getElementById("username");
-let useremail = document.getElementById("useremail");
-let userpassword = document.getElementById("userpassword");
-let usersignupbtn = document.getElementById("usersignupbtn");
-
-if (username && useremail && userpassword && usersignupbtn) {
-    usersignupbtn.addEventListener("click", () => {
-        if (username.value === "" || useremail.value === "" || userpassword.value === "") {
-            alert("Enter the information!!!");
-        } else {
-            window.location.href = "overview.html";
-        }
-    });
-}
-
 // ==================== SETTINGS - DELETE ACCOUNT ====================
 let deleteAccount = document.getElementById("deleteAccount"); 
 if (deleteAccount) {
@@ -466,6 +437,6 @@ function toggleConnect(btn, platform) {
 const managePlanBtn = document.getElementById('managePlanBtn');
 if (managePlanBtn) {
     managePlanBtn.addEventListener('click', () => {
-        alert("✨ Hexovate Growth Plan ($29/month)\n\n• Unlimited scheduled posts\n• 4 Connected social channels\n• Advanced AI caption & analytics\n\nNext Billing Date: September 1, 2026\nTo upgrade or cancel, contact billing@hexovate.com");
+        alert("✨ postpilot Growth Plan ($29/month)\n\n• Unlimited scheduled posts\n• 4 Connected social channels\n• Advanced AI caption & analytics\n\nNext Billing Date: September 1, 2026\nTo upgrade or cancel, contact billing@companyname.com");
     });
 }
